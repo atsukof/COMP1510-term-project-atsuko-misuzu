@@ -1,24 +1,33 @@
 
-def game():
-    """
-
-    :return:
-    """
-    pass
-
 def make_a_board():
     """
 
     :return:
     """
-    pass
+    board_dict = {}
+    return board_dict
+
 
 def make_character():
     """
 
     :return:
     """
-    pass
+    character_dict = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5, 'KEP': 0}
+    while True:
+        user_name = input('Enter your name: ')
+        user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
+        if user_response.lower() == 'n':
+            continue
+        elif user_response.lower() == 'y':
+            print(f'Hello {user_name}, let\'s explore Kyoto with us!')
+            break
+        while user_response.lower() != 'y' and user_response.lower() != 'n':
+            user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
+
+    character_dict['Name'] = user_name
+    return character_dict
+
 
 def instruction():
     """
@@ -27,12 +36,14 @@ def instruction():
     """
     pass
 
+
 def show_status_and_map():
     """
 
     :return:
     """
     pass
+
 
 def get_user_choice():
     """
@@ -41,12 +52,14 @@ def get_user_choice():
     """
     pass
 
+
 def validate_direction():
     """
 
     :return:
     """
     pass
+
 
 def move_user():
     """
@@ -55,12 +68,14 @@ def move_user():
     """
     pass
 
+
 def is_kinkakuji():
     """
 
     :return:
     """
     pass
+
 
 def check_quiz():
     """
@@ -69,12 +84,14 @@ def check_quiz():
     """
     pass
 
+
 def play_quiz():
     """
 
     :return:
     """
     pass
+
 
 def check_level_up():
     """
@@ -83,12 +100,14 @@ def check_level_up():
     """
     pass
 
+
 def is_achieved_level_3():
     """
 
     :return:
     """
     pass
+
 
 def is_food_station():
     """
@@ -97,6 +116,7 @@ def is_food_station():
     """
     pass
 
+
 def eat_food():
     """
 
@@ -104,14 +124,16 @@ def eat_food():
     """
     pass
 
-def fight_with_munk():
+
+def fight_with_monk():
     """
 
     :return:
     """
     pass
 
-def lose_munk():
+
+def lose_monk():
     """
 
     :return:
@@ -120,14 +142,17 @@ def lose_munk():
 
 
 def game():
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, Chris')  # Press ⌘F8 to toggle the breakpoint.
+    """
+    Run the game
+    """
+    board = make_a_board()
+    character = make_character()
+    instruction()
+
 
 def main():
     game()
 
-# Press the green button in the gutter to run the script.
+
 if __name__ == '__main__':
     main()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
