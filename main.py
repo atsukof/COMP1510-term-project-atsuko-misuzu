@@ -169,6 +169,15 @@ def lose_monk():
     pass
 
 
+def is_alive(user_character):
+    """
+
+    :return:
+    """
+    alive = user_character['Current HP'] > 0
+    return alive
+
+
 def game():
     """
     Run the game.
@@ -176,6 +185,8 @@ def game():
     board = make_a_board()
     character = make_character()
     instruction()
+    show_status_and_map(character, board)
+    while
 
 
 def main():
