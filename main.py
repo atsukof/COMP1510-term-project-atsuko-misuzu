@@ -33,8 +33,8 @@ def make_character():
 
 def instruction():
     """
+    Print instruction of the game.
 
-    :return:
     """
     time.sleep(1)
     print('Through this game, you can explore Kyoto which is one of our most favourite cities.')
@@ -50,20 +50,35 @@ def instruction():
     print('Let\'s begin!')
     time.sleep(1)
 
-def show_status_and_map():
-    """
 
-    :return:
+def show_status_and_map(user_character, board):
     """
-    pass
+    Print user's current location in map and character.
+    :param user_character:
+    :param board:
+
+    """
+    print(board)
+    print(user_character)
 
 
 def get_user_choice():
     """
+    Ask users to enter the direction they wish to travel and return the users' choice.
 
-    :return:
+    Print a numbered list of directions options.
+
+    :precondition: player's HP is greater than zero
+    :postcondition: the function let users enter a number until they enter a correct number
+    :return: an integer between 1 and 4 inclusive
     """
-    pass
+    while True:
+        user_choice_list = ['1', '2', '3', '4']
+        user_choice = input(f'Which direction do you want to go? '
+                            f'Type 1 for North, 2 for East, 3 for South, and 4 for West\n {user_choice_list} \n')
+        if user_choice in user_choice_list:
+            return int(user_choice)
+        print('You need to choose from the list!')
 
 
 def validate_direction():
@@ -156,7 +171,7 @@ def lose_monk():
 
 def game():
     """
-    Run the game
+    Run the game.
     """
     board = make_a_board()
     character = make_character()
