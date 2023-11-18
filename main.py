@@ -1,3 +1,5 @@
+import time
+
 
 def make_a_board():
     """
@@ -34,8 +36,19 @@ def instruction():
 
     :return:
     """
-    pass
-
+    time.sleep(1)
+    print('Through this game, you can explore Kyoto which is one of our most favourite cities.')
+    time.sleep(2)
+    print('Your mission is to go to Kinkakuji temple, and defeat a monk.')
+    time.sleep(2)
+    print('''To fight with a monk, answer random quizzes correctly to earn Kyoto Experience Points(KEP). 
+    The quizzes are about Japan.''')
+    time.sleep(3)
+    print('''If you answer incorrectly, your HP will decrease by 1. 
+    Before your HP becomes 0, you need to find food and eat.''')
+    time.sleep(3)
+    print('Let\'s begin!')
+    time.sleep(1)
 
 def show_status_and_map():
     """
