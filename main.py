@@ -81,18 +81,33 @@ def get_user_choice():
         print('You need to choose from the list!')
 
 
-def validate_direction():
+def validate_direction(board, character, direction):
+    """
+    Validate if the character's move is on the board.
+
+    Check whether the character can travel in their desired direction.
+
+    :param board: a dictionary that contains rows * columns keys and a short description
+    :param character: a dictionary that contains X- and Y-coordinates and current status
+    :param direction: an integer of direction users have chosen
+    :precondition: a board must be a dictionary that contains rows * columns keys and a short description
+    :precondition: a character must be a dictionary that contains coordinate and current HP
+    :precondition: a direction must be an integer between 1 and 4 inclusive
+    :postcondition: check if the move is valid, return True if it is, else False
+    :return: a Boolean
+    """
+    is_valid = False
+    direction_dictionary = {}
+    move = direction_dictionary[direction]
+    next_location = (character['X-coordinate'] + move[0], character['Y-coordinate'] + move[1])
+    if next_location in board.keys():
+        is_valid = True
+    return is_valid
+
+
+def move_user(character, direction):
     """
 
-    :return:
-    """
-    pass
-
-
-def move_user():
-    """
-
-    :return:
     """
     pass
 
@@ -186,7 +201,20 @@ def game():
     character = make_character()
     instruction()
     show_status_and_map(character, board)
-    while
+
+    while is_alive(character):
+        direction = get_user_choice()
+        valid_move = validate_direction(board, character, direction)
+        if valid_move:
+            move_user(character, direction)
+            show_status_and_map(character, board)
+        else:
+            # Tell the users they cannot go in that direction
+            print('Oops! You cannot go this direction.')
+            show_status_and_map(character, board)
+
+
+
 
 
 def main():
