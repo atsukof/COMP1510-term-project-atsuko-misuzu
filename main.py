@@ -80,6 +80,22 @@ def show_status_and_map(user_character, board):
     :param board:
 
     """
+    map_string ="""
+    .─.─.─.─.─.─.─.─.─.─.
+    │ │ │ │ │ │ │ │ │ │ │
+    .─.─.─.─.─.─.─.─.─.─.
+    │ │ │ │ │ │ │ │ │ │ │
+    .─.─.─.─.─.─.─.─.─.─.
+    │ │ │ │ │ │ │ │ │ │ │
+    .─.─.─.─.─.─.─.─.─.─.
+    │ │ │ │ │ │ │ │ │ │ │
+    .─.─.─.─.─.─.─.─.─.─.
+    │ │ │ │ │ │ │ │ │ │ │
+    .─.─.─.─.─.─.─.─.─.─.
+    │ │ │ │ │ │ │ │ │ │ │
+    .─.─.─.─.─.─.─.─.─.─.
+    """
+    print(map_string)
     print(board)
     print(user_character)
 
@@ -240,8 +256,10 @@ def game():
 
 
 def main():
-    make_a_board()
-    # game()
+    # make_a_board()
+    # show_status_and_map()
+    game()
+
 
 
 if __name__ == '__main__':
