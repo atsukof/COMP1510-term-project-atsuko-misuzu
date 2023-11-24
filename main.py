@@ -3,10 +3,32 @@ import time
 
 def make_a_board():
     """
+    Make a game board.
 
     :return:
     """
     board_dict = {}
+    rows = 10
+    columns = 10
+
+    for row in range(rows):
+        for column in range(columns):
+            board_tuple = (row, column)
+            board_dict[board_tuple] = "Random Street"
+
+    # special locations
+    board_dict[(4,0)] = "Kyoto Station"
+    board_dict[(0,9)] = "Kinkakuji Temple"
+    board_dict[(8,3)] = "Kiyomizudera Temple"
+    board_dict[(3,3)] = "Nishiki Market"
+    board_dict[(4,3)] = "Nishiki Market"
+    board_dict[(2,4)] = "Nijojo Castle"
+    board_dict[(4,4)] = "Ueshima Coffee"
+    board_dict[(3,6)] = "Kyoto Imperial Palace"
+    board_dict[(7,7)] = "Kyoto University"
+
+    print(board_dict)
+
     return board_dict
 
 
@@ -218,7 +240,8 @@ def game():
 
 
 def main():
-    game()
+    make_a_board()
+    # game()
 
 
 if __name__ == '__main__':
