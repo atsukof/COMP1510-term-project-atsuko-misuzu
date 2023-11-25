@@ -78,10 +78,11 @@ def show_status_and_map(user_character, board):
     Print user's current location in map and character.
     :param user_character:
     :param board:
-
+    :precondition:
+    :postcondition:
     """
-    map_string ="""
-    .─.─.─.─.─.─.─.─.─.─.
+    map_string = """
+    ─.─.─.─.─.─.─.─.─.─.
     │ │ │ │ │ │ │ │ │ │ │
     .─.─.─.─.─.─.─.─.─.─.
     │ │ │ │ │ │ │ │ │ │ │
@@ -198,18 +199,24 @@ def is_food_station():
     pass
 
 
-def eat_food():
+def eat_food(character):
     """
 
+    :param character:
+    :precondition:
     :return:
     """
-    pass
+    food_choice = input('Do you want to eat food here? type "y" for yes, "n" for no: ')
+    if food_choice.lower() == 'y':
+        character['Current HP'] += 1
+        print('Oishii! Your Current HP was increased by 1')
+    else:
+        print('You did\'t eat anything here.')
 
 
 def fight_with_monk():
     """
 
-    :return:
     """
     pass
 
@@ -250,6 +257,8 @@ def game():
             # Tell the users they cannot go in that direction
             print('Oops! You cannot go this direction.')
             show_status_and_map(character, board)
+
+    eat_food(character)
 
 
 
