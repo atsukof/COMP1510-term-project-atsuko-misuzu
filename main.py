@@ -189,12 +189,15 @@ def check_level_up():
     pass
 
 
-def is_achieved_level_3():
+def is_achieved_level_3(character):
     """
 
     :return:
     """
-    pass
+    current_level = character['KEP'] >= 7
+    if current_level:
+        print('You\'re ready to fight with monk at Kinkakuji Temple!')
+    return current_level
 
 
 def is_food_station(character, board):
