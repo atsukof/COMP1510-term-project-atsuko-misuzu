@@ -218,10 +218,10 @@ def check_level_up(character):
     :precondition:
     :postcondition:
     """
-    current_hp = character['KEP']
-    if current_hp <= 3:
+    current_kep = character['KEP']
+    if current_kep <= 3:
         print('Now you are level 1.')
-    elif current_hp < 7:
+    elif current_kep < 7:
         print('Now you are level 2.')
     else:
         print('You are level 3 now! You\'re ready to fight with monk at Kinkakuji Temple.')
@@ -271,15 +271,33 @@ def fight_with_monk():
     """
 
     """
-    pass
+    while True:
+        # fight_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
+        monk_choice = random.randint(1, 3)
+        user_choice = int(input('Monk wants to fight with you. Which do you want to choose? '
+                                'Type 1 for rock, 2 for paper, 3 for scissors'))
+        if monk_choice == user_choice:
+            continue
+        elif monk_choice < user_choice:
+            if monk_choice == 1 and user_choice == 3:
+                return False
+            else:
+                return True
+        else:
+            if monk_choice == 3 and user_choice == 1:
+                return True
+            else:
+                return False
 
 
-def lose_monk():
+def lose_monk(character):
     """
 
-    :return:
+    :param character:
+    :precondition:
+    :postcondition:
     """
-    pass
+    character['Current HP'] -= 2
 
 
 def is_alive(user_character):
