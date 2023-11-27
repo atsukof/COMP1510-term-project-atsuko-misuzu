@@ -181,22 +181,28 @@ def play_quiz():
     pass
 
 
-def check_level_up():
+def check_level_up(character):
     """
 
-    :return:
+    :param character:
+    :precondition:
+    :postcondition:
     """
-    pass
+    current_hp = character['KEP']
+    if current_hp <= 3:
+        print('Now you are level 1.')
+    elif current_hp < 7:
+        print('Now you are level 2.')
+    else:
+        print('You are level 3 now! You\'re ready to fight with monk at Kinkakuji Temple.')
 
 
 def is_achieved_level_3(character):
     """
 
-    :return:
+    :return: a boolean
     """
     current_level = character['KEP'] >= 7
-    if current_level:
-        print('You\'re ready to fight with monk at Kinkakuji Temple!')
     return current_level
 
 
