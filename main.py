@@ -3,9 +3,13 @@ import time
 
 def make_a_board():
     """
-    Make a game board.
+    Create a 10 x 10 game board.
 
-    :return:
+    Each point on the game board is represented by coordinates ranging from (0, 0) to (9, 9),
+    and each point is assigned a name.
+    Special locations on the board have specific coordinates, while others are named "Random Street."
+    :postcondition: creates a 10 x 10 game board
+    :return: a dictionary where keys are coordinates and values are names of the places
     """
     board_dict = {}
     rows = 10
@@ -34,8 +38,12 @@ def make_a_board():
 
 def make_character():
     """
+    Create a dictionary with character's information.
 
-    :return:
+    This function allows a user to enter character's name.
+    After the character's name is determined, this function returns a dictionary with character's information.
+    :postcondition: creates a dictionary with character's information
+    :return: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     """
     character_dict = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5, 'KEP': 0}
     while True:
@@ -57,6 +65,7 @@ def instruction():
     """
     Print instruction of the game.
 
+    :postcondition: prints instruction of the game
     """
     time.sleep(1)
     print('Through this game, you can explore Kyoto which is one of our most favourite cities.')
@@ -76,10 +85,11 @@ def instruction():
 def show_status_and_map(user_character, board):
     """
     Print user's current location in map and character.
-    :param user_character:
-    :param board:
-    :precondition:
-    :postcondition:
+
+    :param user_character: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
+    :param board: a dictionary where keys are coordinates and values are names of the places
+    :precondition: user_character must conform to the format specified in the parameter
+    :postcondition: board must be a dictionary with keys and values described in param board
     """
     map_string = """
     !─~─~─~─~─~─~─~─~─~
@@ -109,12 +119,11 @@ def show_status_and_map(user_character, board):
 
 def get_user_choice():
     """
-    Ask users to enter the direction they wish to travel and return the users' choice.
+    Ask a user to enter the direction they wish to travel and return the user's choice.
 
-    Print a numbered list of directions options.
-
-    :precondition: player's HP is greater than zero
-    :postcondition: the function let users enter a number until they enter a correct number
+    This function prompts the user to input an integer between 1 and 4 (inclusive).
+    If the user enters something other than an integer, the function requests input again.
+    :postcondition: the function let a user enter a number until they enter a correct number
     :return: an integer between 1 and 4 inclusive
     """
     while True:
@@ -128,16 +137,14 @@ def get_user_choice():
 
 def validate_direction(board, character, direction):
     """
-    Validate if the character's move is on the board.
+    Validate if the character can move to the specified direction.
 
-    Check whether the character can travel in their desired direction.
-
-    :param board: a dictionary that contains rows * columns keys and a short description
-    :param character: a dictionary that contains X- and Y-coordinates and current status
+    :param board: a dictionary where keys are coordinates and values are names of the places
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :param direction: an integer of direction users have chosen
-    :precondition: a board must be a dictionary that contains rows * columns keys and a short description
-    :precondition: a character must be a dictionary that contains coordinate and current HP
-    :precondition: a direction must be an integer between 1 and 4 inclusive
+    :precondition: board must be a dictionary that contains rows * columns keys and a short description
+    :precondition: character must be a dictionary that contains coordinate, current status, and name
+    :precondition: direction must be an integer between 1 and 4 inclusive
     :postcondition: check if the move is valid, return True if it is, else False
     :return: a Boolean
     """
@@ -152,7 +159,13 @@ def validate_direction(board, character, direction):
 
 def move_user(character, direction):
     """
+    Update character's X- and Y-coordinates depending on the direction selected by the user.
 
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param direction: an integer between 1 and 4 inclusive
+    :precondition: character must be a dictionary that contains coordinate, current status, and name
+    :precondition: direction must be an integer between 1 and 4 inclusive
+    :postcondition: updates character's X- and Y-coordinates depending on the direction selected by the user
     """
     pass
 
