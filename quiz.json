@@ -1,0 +1,20 @@
+[
+   {
+    "number": 0,
+    "quiz": "What is the capital of Japan?",
+    "1": "Osaka",
+    "2": "Kyoto",
+    "3": "Hokkaido",
+    "4": "Tokyo",
+    "ans": "4"
+  },
+  {
+    "number": 1,
+    "quiz": "What is traditional Japanese clothing called?",
+    "1": "Hanbok",
+    "2": "Kimono",
+    "3": "Ao dai",
+    "4": "Saree",
+    "ans": "2"
+  }
+]
