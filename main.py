@@ -213,10 +213,10 @@ def check_level_up(character):
     :precondition:
     :postcondition:
     """
-    current_hp = character['KEP']
-    if current_hp <= 3:
+    current_kep = character['KEP']
+    if current_kep <= 3:
         print('Now you are level 1.')
-    elif current_hp < 7:
+    elif current_kep < 7:
         print('Now you are level 2.')
     else:
         print('You are level 3 now! You\'re ready to fight with monk at Kinkakuji Temple.')
@@ -285,12 +285,14 @@ def fight_with_monk():
                 return False
 
 
-def lose_monk():
+def lose_monk(character):
     """
 
-    :return:
+    :param character:
+    :precondition:
+    :postcondition:
     """
-    pass
+    character['Current HP'] -= 2
 
 
 def is_alive(user_character):
