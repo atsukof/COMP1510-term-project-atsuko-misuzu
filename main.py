@@ -175,6 +175,11 @@ def is_kinkakuji(character, board):
     """
     Check if the character has reached the goal.
 
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param board: a dictionary where keys are coordinates and values are names of the places
+    :precondition: character must conform to the format specified in the parameter
+    :precondition: board must conform to the format specified in the parameter
+    :postcondition: checks if the character is in the goal
     :return: a boolean
     """
     kinkakuji = False
@@ -186,10 +191,10 @@ def is_kinkakuji(character, board):
 
 def check_quiz():
     """
-    Check if the random number is equal or less than 3
+    Return True with 30% of chance.
 
-    Generate a random number between 1 and 10 inclusive.
-
+    This function generates a random number between 1 and 10 inclusive.
+    If the random number is equal or less than 3, the function returns True.
     :postcondition: generates a random number between 1 and 10 inclusive
     :postcondition: returns True if the random number is equal or less than 3, else False
     :return: a boolean
