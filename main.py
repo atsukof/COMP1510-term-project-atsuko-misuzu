@@ -197,12 +197,20 @@ def is_achieved_level_3():
     pass
 
 
-def is_food_station():
+def is_food_station(character, board):
     """
 
+    :param character:
+    :param board:
+    :precondition:
+    :postcondition:
     :return:
     """
-    pass
+    is_food = False
+    current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
+    if current_location != 'Random Street' and current_location != 'Kinkakuji Temple':
+        is_food = True
+    return is_food
 
 
 def eat_food(character):
