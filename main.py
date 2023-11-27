@@ -1,4 +1,5 @@
 import time
+import random
 
 
 def make_a_board():
@@ -167,10 +168,16 @@ def is_kinkakuji():
 
 def check_quiz():
     """
+    Check if the random number is equal or less than 3
 
-    :return:
+    Generate a random number between 1 and 10 inclusive.
+
+    :postcondition: generates a random number between 1 and 10 inclusive
+    :postcondition: returns True if the random number is equal or less than 3, else False
+    :return: a boolean
     """
-    pass
+    encounter_quiz = random.randint(1, 10)
+    return encounter_quiz <= 3
 
 
 def play_quiz():
