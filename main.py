@@ -158,12 +158,17 @@ def move_user(character, direction):
     pass
 
 
-def is_kinkakuji():
+def is_kinkakuji(character, board):
     """
+    Check if the character has reached the goal.
 
-    :return:
+    :return: a boolean
     """
-    pass
+    kinkakuji = False
+    current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
+    if current_location == 'Kinkakuji Temple':
+        kinkakuji = True
+    return kinkakuji
 
 
 def check_quiz():
