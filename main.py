@@ -1,4 +1,5 @@
 import time
+import random
 
 
 def make_a_board():
@@ -170,20 +171,31 @@ def move_user(character, direction):
     pass
 
 
-def is_kinkakuji():
+def is_kinkakuji(character, board):
     """
+    Check if the character has reached the goal.
 
-    :return:
+    :return: a boolean
     """
-    pass
+    kinkakuji = False
+    current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
+    if current_location == 'Kinkakuji Temple':
+        kinkakuji = True
+    return kinkakuji
 
 
 def check_quiz():
     """
+    Check if the random number is equal or less than 3
 
-    :return:
+    Generate a random number between 1 and 10 inclusive.
+
+    :postcondition: generates a random number between 1 and 10 inclusive
+    :postcondition: returns True if the random number is equal or less than 3, else False
+    :return: a boolean
     """
-    pass
+    encounter_quiz = random.randint(1, 10)
+    return encounter_quiz <= 3
 
 
 def play_quiz():
@@ -194,28 +206,45 @@ def play_quiz():
     pass
 
 
-def check_level_up():
+def check_level_up(character):
     """
 
+    :param character:
+    :precondition:
+    :postcondition:
+    """
+    current_hp = character['KEP']
+    if current_hp <= 3:
+        print('Now you are level 1.')
+    elif current_hp < 7:
+        print('Now you are level 2.')
+    else:
+        print('You are level 3 now! You\'re ready to fight with monk at Kinkakuji Temple.')
+
+
+def is_achieved_level_3(character):
+    """
+
+    :return: a boolean
+    """
+    current_level = character['KEP'] >= 7
+    return current_level
+
+
+def is_food_station(character, board):
+    """
+
+    :param character:
+    :param board:
+    :precondition:
+    :postcondition:
     :return:
     """
-    pass
-
-
-def is_achieved_level_3():
-    """
-
-    :return:
-    """
-    pass
-
-
-def is_food_station():
-    """
-
-    :return:
-    """
-    pass
+    is_food = False
+    current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
+    if current_location != 'Random Street' and current_location != 'Kinkakuji Temple':
+        is_food = True
+    return is_food
 
 
 def eat_food(character):
