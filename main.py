@@ -214,7 +214,7 @@ def play_quiz(user_character):
     with open(filename) as file_object:
         quiz_list = json.load(file_object)
 
-    random_number = random.randint(0, 1) # change it later
+    random_number = random.randint(0, 11) # change it later
     print(quiz_list[random_number]["quiz"])
     options = (f"1. {quiz_list[random_number]['1']}\n"
                f"2. {quiz_list[random_number]['2']}\n"
@@ -365,6 +365,12 @@ def main():
     make_a_board()
     show_status_and_map()
     game()
+    # character = make_character()
+    # play_quiz(character)
+    # play_quiz(character)
+    # play_quiz(character)
+
+
 
 
 

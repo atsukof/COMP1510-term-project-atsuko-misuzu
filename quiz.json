@@ -1,5 +1,5 @@
 [
-   {
+  {
     "number": 0,
     "quiz": "What is the capital of Japan?",
     "1": "Osaka",
@@ -11,10 +11,99 @@
   {
     "number": 1,
     "quiz": "What is traditional Japanese clothing called?",
-    "1": "Hanbok",
+    "1": "Chima-chogori",
     "2": "Kimono",
     "3": "Ao dai",
-    "4": "Saree",
+    "4": "Sari",
     "ans": "2"
+  },
+  {
+    "number": 2,
+    "quiz": "In the traditional Japanese event of Setsubun (the turning point of the seasons), what is thrown to invite good luck?",
+    "1": "Mochi (Rice cakes)",
+    "2": "Bamboo skewers",
+    "3": "Beans",
+    "4": "Oranges",
+    "ans": "3"
+  },
+  {
+    "number": 3,
+    "quiz": "What term refers to the cherry blossoms that bloom in Japan during the spring season?",
+    "1": "Hana",
+    "2": "Sakura",
+    "3": "Ume",
+    "4": "Tsubaki",
+    "ans": "2"
+  },
+  {
+    "number": 4,
+    "quiz": "What is the size of a Tatami mat?",
+    "1": "180cm x 50cm",
+    "2": "191cm x 95.5cm",
+    "3": "191cm x 120.5cm",
+    "4": "200cm x 95.5cm",
+    "ans": "2"
+  },
+  {
+    "number": 5,
+    "quiz": "What does 'Arigato' mean in Japanese?",
+    "1": "Thank you",
+    "2": "Goodbye",
+    "3": "Hello",
+    "4": "Sorry",
+    "ans": "1"
+  },
+  {
+    "number": 6,
+    "quiz": "Which facility has the highest number in Kyoto Prefecture per 100,000 population?",
+    "1": "Hospital",
+    "2": "University",
+    "3": "Library",
+    "ans": "2"
+  },
+  {
+    "number": 7,
+    "quiz": "What is the currency of Japan?",
+    "1": "Won",
+    "2": "Dollar",
+    "3": "Yen",
+    "4": "Peso",
+    "ans": "3"
+  },
+  {
+    "number": 8,
+    "quiz": "Which company has its headquarters in Kyoto?",
+    "1": "Toyota Motor Corporation",
+    "2": "Sony Corporation",
+    "3": "Nintendo",
+    "4": "Canon Inc.",
+    "ans": "1"
+  },
+  {
+    "number": 9,
+    "quiz": "At what age can one become a Maiko (apprentice geisha)?",
+    "1": "10 years old",
+    "2": "15 years old",
+    "3": "18 years old",
+    "4": "20 years old",
+    "ans": "2"
+  },
+  {
+    "number": 10,
+    "quiz": "What is the highest peak in Japan?",
+    "1": "Mount Fuji",
+    "2": "Mount Ena",
+    "3": "Mount Aso",
+    "4": "Mount Baker",
+    "ans": "1"
+  },
+  {
+    "number": 11,
+    "quiz": "Kyoto machiya (traditional townhouses), built on a narrow and elongated plot of land, is also known as the '〇〇〇 no nedoko' (bed of 〇〇〇). What fills in the blank?",
+    "1": "Hebi (Snake)",
+    "2": "Usagi (Rabbit)",
+    "3": "Unagi (Eel)",
+    "4": "Kame (Turtle)",
+    "ans": "3"
   }
 ]
