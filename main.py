@@ -47,7 +47,7 @@ def make_character():
     :postcondition: creates a dictionary with character's information
     :return: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     """
-    character_dict = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5, 'KEP': 0}
+    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0}
     while True:
         user_name = input('Enter your name: ')
         user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
@@ -93,43 +93,24 @@ def show_status_and_map(user_character, board):
     :precondition: user_character must conform to the format specified in the parameter
     :postcondition: board must be a dictionary with keys and values described in param board
     """
-    map_string = """
-    !─~─~─~─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─~─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─~─~─~─~─!─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─!─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─~─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─!─~─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─!!!─~─~─~─!─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─~─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─~─~─~─~─~─~─~
-    │ │ │ │ │ │ │ │ │ │
-    ~─~─~─~─!─~─~─~─~─~
-    """
+    max_row = max(coordinate[0] for coordinate in board.keys()) + 1
+    max_col = max(coordinate[1] for coordinate in board.keys()) + 1
 
-    map_string_2 = """
-    △△■■△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△●●
-    △△△△△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△@@
-    △△△△△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△△△
-    △△△△△△△△△△△△△△△△△△△△
-    """
-    print(map_string)
-    print(board)
-    print(user_character)
+    for y_coordinate in range(max_row):
+        for x_coordinate in range(max_col):
+            if (x_coordinate, y_coordinate) == (user_character['X-coordinate'], user_character['Y-coordinate']):
+                print("##", end="")
+            elif board[(x_coordinate, y_coordinate)] == "Random Street":
+                print("△△", end="")
+            else:
+                print("■■", end="")
+        print()
+
+    user_status = (f"\n[Your status]\nCurrent HP: {user_character['Current HP']}\n"
+                   f"KEP: {user_character['KEP']}\n"
+                   f"Location:({user_character['X-coordinate']}, {user_character['Y-coordinate']}) *plotted with ##")
+
+    print(user_status)
 
 
 def get_user_choice():
@@ -375,13 +356,11 @@ def game():
 
 
 def main():
-    make_a_board()
-    show_status_and_map()
-    game()
-    # character = make_character()
-    # play_quiz(character)
-    # play_quiz(character)
-    # play_quiz(character)
+    # game()
+    board = make_a_board()
+    character = make_character()
+    # instruction()
+    show_status_and_map(character, board)
 
 
 if __name__ == '__main__':
