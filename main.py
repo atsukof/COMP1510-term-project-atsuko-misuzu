@@ -23,15 +23,15 @@ def make_a_board():
             board_dict[board_tuple] = "Random Street"
 
     # special locations
-    board_dict[(4,0)] = "Kyoto Station"
-    board_dict[(0,9)] = "Kinkakuji Temple"
-    board_dict[(8,3)] = "Kiyomizudera Temple"
-    board_dict[(3,3)] = "Nishiki Market"
-    board_dict[(4,3)] = "Nishiki Market"
-    board_dict[(2,4)] = "Nijojo Castle"
-    board_dict[(4,4)] = "Ueshima Coffee"
-    board_dict[(3,6)] = "Kyoto Imperial Palace"
-    board_dict[(7,7)] = "Kyoto University"
+    board_dict[(4, 9)] = "Kyoto Station"
+    board_dict[(0, 0)] = "Kinkakuji Temple"
+    board_dict[(8, 6)] = "Kiyomizudera Temple"
+    board_dict[(3, 6)] = "Nishiki Market"
+    board_dict[(4, 6)] = "Nishiki Market"
+    board_dict[(2, 5)] = "Nijojo Castle"
+    board_dict[(4, 5)] = "Ueshima Coffee"
+    board_dict[(3, 3)] = "Kyoto Imperial Palace"
+    board_dict[(7, 2)] = "Kyoto University"
 
     print(board_dict)
 
@@ -382,9 +382,6 @@ def main():
     # play_quiz(character)
     # play_quiz(character)
     # play_quiz(character)
-
-
-
 
 
 if __name__ == '__main__':
