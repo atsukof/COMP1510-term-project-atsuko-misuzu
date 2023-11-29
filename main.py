@@ -198,17 +198,21 @@ def check_quiz():
     return encounter_quiz <= 3
 
 
-def play_quiz(user_character):
+def play_quiz(character):
     """
+    Print random quiz.
 
-    :param user_character:
-    :return:
+    Increase KEP by 1 if user choose the correct choice, decrease Current HP if they choose wrong one.
+
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition:
+    :postcondition:
     """
     filename = "quiz.json"
     with open(filename) as file_object:
         quiz_list = json.load(file_object)
 
-    random_number = random.randint(0, 11) # change it later
+    random_number = random.randint(0, 11)  # change it later
     print(quiz_list[random_number]["quiz"])
     options = (f"1. {quiz_list[random_number]['1']}\n"
                f"2. {quiz_list[random_number]['2']}\n"
@@ -220,17 +224,17 @@ def play_quiz(user_character):
 
     if user_answer == quiz_list[random_number]["ans"]:
         print("You are correct, your KEP was increased by 1")
-        user_character["KEP"] += 1
+        character["KEP"] += 1
     else:
         print("You are wrong, your HP was decreased by 1")
-        user_character["Current HP"] -= 1
-    print(user_character)
+        character["Current HP"] -= 1
+    print(character)
 
 
 def check_level_up(character):
     """
 
-    :param character:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition:
     :postcondition:
     """
