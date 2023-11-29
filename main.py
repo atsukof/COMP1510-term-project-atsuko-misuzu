@@ -93,11 +93,8 @@ def show_status_and_map(user_character, board):
     :precondition: user_character must conform to the format specified in the parameter
     :postcondition: board must be a dictionary with keys and values described in param board
     """
-    max_row = max(coordinate[0] for coordinate in board.keys()) + 1
-    max_col = max(coordinate[1] for coordinate in board.keys()) + 1
-
-    for y_coordinate in range(max_row):
-        for x_coordinate in range(max_col):
+    for y_coordinate in range(10):
+        for x_coordinate in range(10):
             if (x_coordinate, y_coordinate) == (user_character['X-coordinate'], user_character['Y-coordinate']):
                 print("##", end="")
             elif board[(x_coordinate, y_coordinate)] == "Random Street":
