@@ -293,7 +293,10 @@ def eat_food(character):
 
 def fight_with_monk():
     """
+    Get user input and compare it with the number that is randomly generated
 
+    :postcondition: return True if user wins, else False
+    :return: a boolean
     """
     while True:
         # fight_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
