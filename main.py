@@ -236,7 +236,7 @@ def check_level_up(character):
     """
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :precondition:
+    :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition:
     """
     current_kep = character['KEP']
@@ -252,9 +252,9 @@ def is_achieved_level_3(character):
     """
     Check if the character reach level 3
 
-    :param character:
-    :precondition:
-    :postcondition:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: return True if the character reach level 3, else False
     :return: a boolean
     """
     current_level = character['KEP'] >= 7
@@ -263,11 +263,13 @@ def is_achieved_level_3(character):
 
 def is_food_station(character, board):
     """
+    Check if the character has reached the food station.
 
-    :param character:
-    :param board:
-    :precondition:
-    :postcondition:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param board: a dictionary where keys are coordinates and values are names of the places
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :precondition: board must conform to the format specified in the parameter
+    :postcondition: return True if the character has reached the food station, else False
     :return: a boolean
     """
     is_food = False
