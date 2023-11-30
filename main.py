@@ -142,7 +142,7 @@ def validate_direction(board, character, direction):
     :return: a Boolean
     """
     is_valid = False
-    direction_dictionary = {}
+    direction_dictionary = {1: (0, -1), 2: (1, 0), 3: (0, 1), 4: (-1, 0)}
     move = direction_dictionary[direction]
     next_location = (character['X-coordinate'] + move[0], character['Y-coordinate'] + move[1])
     if next_location in board.keys():
@@ -160,7 +160,11 @@ def move_user(character, direction):
     :precondition: direction must be an integer between 1 and 4 inclusive
     :postcondition: updates character's X- and Y-coordinates depending on the direction selected by the user
     """
-    pass
+    direction_dictionary = {1: (0, -1), 2: (1, 0), 3: (0, 1), 4: (-1, 0)}
+    move = direction_dictionary[direction]
+
+    character["X-coordinate"] += move[0]
+    character["Y-coordinate"] += move[1]
 
 
 def is_kinkakuji(character, board):
@@ -367,11 +371,11 @@ def game():
 
 
 def main():
-    # game()
-    board = make_a_board()
-    character = make_character()
-    # instruction()
-    show_status_and_map(character, board)
+    game()
+    # board = make_a_board()
+    # character = make_character()
+    # # instruction()
+    # show_status_and_map(character, board)
 
 
 if __name__ == '__main__':
