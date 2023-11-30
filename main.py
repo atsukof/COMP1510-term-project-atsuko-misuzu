@@ -305,9 +305,9 @@ def fight_with_monk():
     """
     Get user input and compare it with the number that is randomly generated.
 
-    Play Rock, paper, scissors game.
+    Play rock-paper-scissors game.
 
-    :postcondition: return True if user wins the Rock, paper, scissors game, else False
+    :postcondition: return True if user wins the rock-paper-scissors game, else False
     :return: a Boolean
     """
     monk_pic = """
@@ -357,8 +357,9 @@ def fight_with_monk():
     while True:
         choice_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
         monk_choice = random.randint(1, 3)
-        user_choice = int(input('Monk wants to fight with you. Which do you want to choose? '
-                                'Type 1 for rock, 2 for paper, 3 for scissors'))
+        user_choice = int(input('Monk wants to fight with you. Let\'s play rock-paper-scissors game!'
+                                'Which do you want to choose? '
+                                'Type 1 for rock, 2 for paper, 3 for scissors: '))
         print(f'You threw {choice_dictionary[user_choice]}, and the monk threw {choice_dictionary[monk_choice]}!')
         if monk_choice == user_choice:
             print('Draw! Try one more time.')
