@@ -176,7 +176,7 @@ def is_kinkakuji(character, board):
     :precondition: character must conform to the format specified in the parameter
     :precondition: board must conform to the format specified in the parameter
     :postcondition: checks if the character is in the goal
-    :return: a boolean
+    :return: a Boolean
     """
     kinkakuji = False
     current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
@@ -193,7 +193,7 @@ def check_quiz():
     If the random number is equal or less than 3, the function returns True.
     :postcondition: generates a random number between 1 and 10 inclusive
     :postcondition: returns True if the random number is equal or less than 3, else False
-    :return: a boolean
+    :return: a Boolean
     """
     encounter_quiz = random.randint(1, 10)
     return encounter_quiz <= 3
@@ -206,8 +206,9 @@ def play_quiz(character):
     Increase KEP by 1 if user choose the correct choice, decrease Current HP if they choose wrong one.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :precondition:
-    :postcondition:
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: print random quiz
+    :postcondition: increase KEP by 1 if user choose the correct choice, decrease Current HP if they choose wrong one
     """
     filename = "quiz.json"
     with open(filename) as file_object:
@@ -234,10 +235,13 @@ def play_quiz(character):
 
 def check_level_up(character):
     """
+    Check the user's current level based on KEP and print it.
+
+    Print if the user's level has increased.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :precondition:
-    :postcondition:
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: check the user's current level based on KEP and print it
     """
     current_kep = character['KEP']
     if current_kep <= 3:
@@ -252,10 +256,10 @@ def is_achieved_level_3(character):
     """
     Check if the character reach level 3
 
-    :param character:
-    :precondition:
-    :postcondition:
-    :return: a boolean
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: return True if the character reach level 3, else False
+    :return: a Boolean
     """
     current_level = character['KEP'] >= 7
     return current_level
@@ -263,12 +267,14 @@ def is_achieved_level_3(character):
 
 def is_food_station(character, board):
     """
+    Check if the character has reached the food station.
 
-    :param character:
-    :param board:
-    :precondition:
-    :postcondition:
-    :return:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param board: a dictionary where keys are coordinates and values are names of the places
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :precondition: board must conform to the format specified in the parameter
+    :postcondition: return True if the character has reached the food station, else False
+    :return: a Boolean
     """
     is_food = False
     current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
@@ -279,10 +285,11 @@ def is_food_station(character, board):
 
 def eat_food(character):
     """
+    Increase the Current HP by eating food if user want to.
 
-    :param character:
-    :precondition:
-    :return:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: increase the Current HP by eating food if user want to
     """
     food_choice = input('Do you want to eat food here? type "y" for yes, "n" for no: ')
     if food_choice.lower() == 'y':
@@ -294,13 +301,14 @@ def eat_food(character):
 
 def fight_with_monk():
     """
-    Get user input and compare it with the number that is randomly generated
+    Get user input and compare it with the number that is randomly generated.
 
-    :postcondition: return True if user wins, else False
-    :return: a boolean
+    Play Rock, paper, scissors game.
+
+    :postcondition: return True if user wins the Rock, paper, scissors game, else False
+    :return: a Boolean
     """
     while True:
-        # fight_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
         monk_choice = random.randint(1, 3)
         user_choice = int(input('Monk wants to fight with you. Which do you want to choose? '
                                 'Type 1 for rock, 2 for paper, 3 for scissors'))
@@ -323,7 +331,7 @@ def lose_monk(character):
     Decrease character's Current HP by 2.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :precondition: user_character must contain X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: decrease character's Current HP by 2.
     """
     character['Current HP'] -= 2
@@ -336,7 +344,7 @@ def is_alive(character):
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: user_character must contain X- and Y-coordinates, current status, and name
     :postcondition: check if the current HP in character reaches zero or not
-    :return: a boolean
+    :return: a Boolean
     """
     alive = character['Current HP'] > 0
     return alive
