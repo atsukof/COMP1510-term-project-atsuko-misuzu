@@ -326,8 +326,14 @@ def lose_monk(character):
 
 def is_alive(user_character):
     """
+    Check if the character's Current HP reaches zero or not.
 
-    :return:
+    :param: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: user_character must contain X- and Y-coordinates, current status, and name
+    :postcondition: check if the current HP in character reaches zero or not
+    :return: a boolean
+
+
     """
     alive = user_character['Current HP'] > 0
     return alive
