@@ -316,26 +316,25 @@ def fight_with_monk():
 
 def lose_monk(character):
     """
+    Decrease character's Current HP by 2.
 
-    :param character:
-    :precondition:
-    :postcondition:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: user_character must contain X- and Y-coordinates, current status, and name
+    :postcondition: decrease character's Current HP by 2.
     """
     character['Current HP'] -= 2
 
 
-def is_alive(user_character):
+def is_alive(character):
     """
-    Check if the character's Current HP reaches zero or not.
+    Check if character's Current HP reaches zero or not.
 
-    :param: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: user_character must contain X- and Y-coordinates, current status, and name
     :postcondition: check if the current HP in character reaches zero or not
     :return: a boolean
-
-
     """
-    alive = user_character['Current HP'] > 0
+    alive = character['Current HP'] > 0
     return alive
 
 
