@@ -84,28 +84,30 @@ def instruction():
     time.sleep(1)
 
 
-def show_status_and_map(user_character, board):
+def show_status_and_map(character, board):
     """
     Print user's current location in map and character.
 
-    :param user_character: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
+    :param character: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     :param board: a dictionary where keys are coordinates and values are names of the places
-    :precondition: user_character must conform to the format specified in the parameter
+    :precondition: character must conform to the format specified in the parameter
     :postcondition: board must be a dictionary with keys and values described in param board
     """
     for y_coordinate in range(10):
         for x_coordinate in range(10):
-            if (x_coordinate, y_coordinate) == (user_character['X-coordinate'], user_character['Y-coordinate']):
-                print("##", end="")
+            if (x_coordinate, y_coordinate) == (character['X-coordinate'], character['Y-coordinate']):
+                print("■■", end="")
             elif board[(x_coordinate, y_coordinate)] == "Random Street":
                 print("△△", end="")
             else:
-                print("■■", end="")
+                print("##", end="")
         print()
 
-    user_status = (f"\n[Your status]\nCurrent HP: {user_character['Current HP']}\n"
-                   f"KEP: {user_character['KEP']}\n"
-                   f"Location:({user_character['X-coordinate']}, {user_character['Y-coordinate']}) *plotted with ##")
+    user_status = (f"\n[Your status]"
+                   f"\nName: {character['Name']}"
+                   f"\nCurrent HP: {character['Current HP']}\n"
+                   f"KEP: {character['KEP']}\n"
+                   f"Location:({character['X-coordinate']}, {character['Y-coordinate']}) *plotted with ■■")
 
     print(user_status)
 
