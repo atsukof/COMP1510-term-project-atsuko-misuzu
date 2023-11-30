@@ -311,20 +311,27 @@ def fight_with_monk():
     :return: a Boolean
     """
     while True:
+        choice_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
         monk_choice = random.randint(1, 3)
         user_choice = int(input('Monk wants to fight with you. Which do you want to choose? '
                                 'Type 1 for rock, 2 for paper, 3 for scissors'))
+        print(f'You threw {choice_dictionary[user_choice]}, and the monk threw {choice_dictionary[monk_choice]}!')
         if monk_choice == user_choice:
+            print('Draw! Try one more time.')
             continue
         elif monk_choice < user_choice:
             if monk_choice == 1 and user_choice == 3:
+                print('Oh no, you lost!')
                 return False
             else:
+                print('Hooray, you won!')
                 return True
         else:
             if monk_choice == 3 and user_choice == 1:
+                print('Hooray, you won!')
                 return True
             else:
+                print('Oh no, you lost!')
                 return False
 
 
@@ -360,7 +367,8 @@ def game():
     character = make_character()
     instruction()
 
-    while is_alive(character):
+    complete = False
+    while is_alive(character) and not complete:
         show_status_and_map(character, board)
         direction = get_user_choice()
         valid_move = validate_direction(board, character, direction)
@@ -373,10 +381,8 @@ def game():
             kinkakuji = is_kinkakuji(character, board)
             level_3 = is_achieved_level_3(character)
             if kinkakuji and level_3:
-                fight_result = fight_with_monk()
-                if fight_result:
-                    print("You complete the game!")
-                else:
+                complete = fight_with_monk()
+                if not complete:
                     lose_monk(character)
             else:
                 quiz = check_quiz()
@@ -385,8 +391,10 @@ def game():
         else:
             print('Oops! You cannot go this direction.')
 
-    print("Your HP reached 0. Game over....")
-
+    if not is_alive(character):
+        print("Your HP reached 0. Game over....")
+    else:
+        print("You complete the game!")
 
 
 def main():
