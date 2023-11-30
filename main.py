@@ -264,7 +264,7 @@ def is_food_station(character, board):
     :param board:
     :precondition:
     :postcondition:
-    :return:
+    :return: a boolean
     """
     is_food = False
     current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
@@ -275,10 +275,11 @@ def is_food_station(character, board):
 
 def eat_food(character):
     """
+    Increase the Current HP by eating food if user want to.
 
-    :param character:
-    :precondition:
-    :return:
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: increase the Current HP by eating food if user want to
     """
     food_choice = input('Do you want to eat food here? type "y" for yes, "n" for no: ')
     if food_choice.lower() == 'y':
@@ -290,13 +291,14 @@ def eat_food(character):
 
 def fight_with_monk():
     """
-    Get user input and compare it with the number that is randomly generated
+    Get user input and compare it with the number that is randomly generated.
 
-    :postcondition: return True if user wins, else False
+    Play Rock, paper, scissors game.
+
+    :postcondition: return True if user wins the Rock, paper, scissors game, else False
     :return: a boolean
     """
     while True:
-        # fight_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
         monk_choice = random.randint(1, 3)
         user_choice = int(input('Monk wants to fight with you. Which do you want to choose? '
                                 'Type 1 for rock, 2 for paper, 3 for scissors'))
@@ -319,7 +321,7 @@ def lose_monk(character):
     Decrease character's Current HP by 2.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :precondition: user_character must contain X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: decrease character's Current HP by 2.
     """
     character['Current HP'] -= 2
