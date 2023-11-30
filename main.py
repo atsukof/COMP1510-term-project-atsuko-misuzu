@@ -121,7 +121,7 @@ def get_user_choice():
     """
     while True:
         user_choice_list = ['1', '2', '3', '4']
-        user_choice = input(f'Which direction do you want to go? '
+        user_choice = input(f'\nWhich direction do you want to go? '
                             f'Type 1 for North, 2 for East, 3 for South, and 4 for West\n {user_choice_list} \n')
         if user_choice in user_choice_list:
             return int(user_choice)
@@ -349,22 +349,33 @@ def game():
     board = make_a_board()
     character = make_character()
     instruction()
-    show_status_and_map(character, board)
 
     while is_alive(character):
+        show_status_and_map(character, board)
         direction = get_user_choice()
         valid_move = validate_direction(board, character, direction)
         if valid_move:
             move_user(character, direction)
-            show_status_and_map(character, board)
+
+            if is_food_station(character, board):
+                eat_food(character)
+
+            kinkakuji = is_kinkakuji(character, board)
+            level_3 = is_achieved_level_3(character)
+            if kinkakuji and level_3:
+                fight_result = fight_with_monk()
+                if fight_result:
+                    print("You complete the game!")
+                else:
+                    lose_monk(character)
+            else:
+                quiz = check_quiz()
+                if quiz:
+                    play_quiz(character)
         else:
-            # Tell the users they cannot go in that direction
             print('Oops! You cannot go this direction.')
-            show_status_and_map(character, board)
 
-    eat_food(character)
-
-
+    print("Your HP reached 0. Game over....")
 
 
 
