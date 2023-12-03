@@ -471,6 +471,8 @@ def game():
                 complete = fight_with_monk()
                 if not complete:
                     lose_monk(character)
+            elif kinkakuji and not level_3:
+                print('Your level is not high enough to fight with monk! Walk around Kyoto to get KEP.')
             else:
                 quiz = check_quiz()
                 if quiz:
