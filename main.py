@@ -26,19 +26,15 @@ def make_board():
             board_tuple = (row, column)
             board_dict[board_tuple] = "Random Street"
 
-    # special locations
-    board_dict[(4, 9)] = "Kyoto Station"
-    board_dict[(0, 0)] = "Kinkakuji Temple"
-    board_dict[(8, 6)] = "Kiyomizudera Temple"
-    board_dict[(3, 6)] = "Nishiki Market"
-    board_dict[(4, 6)] = "Nishiki Market"
-    board_dict[(2, 5)] = "Nijojo Castle"
-    board_dict[(4, 5)] = "Ueshima Coffee"
-    board_dict[(3, 3)] = "Kyoto Imperial Palace"
-    board_dict[(7, 2)] = "Kyoto University"
+    filename = "special_location.json"
+    with open(filename) as file_object:
+        special_location_list = json.load(file_object)
+
+    for location in special_location_list:
+        location_tuple = location["x_coordinate"], location["y_coordinate"]
+        board_dict[location_tuple] = location["name"]
 
     print(board_dict)
-
     return board_dict
 
 
@@ -251,7 +247,7 @@ def play_quiz(character):
     with open(filename) as file_object:
         quiz_list = json.load(file_object)
 
-    random_number = random.randint(0, 11)  # change it later
+    random_number = random.randint(0, 11)
     print(quiz_list[random_number]["quiz"])
     options = (f"1. {quiz_list[random_number]['1']}\n"
                f"2. {quiz_list[random_number]['2']}\n"
@@ -322,10 +318,15 @@ def is_food_station(character, board):
     :postcondition: return True if the character has reached the food station, else False
     :return: a Boolean
     """
+    filename = "special_location.json"
+    with open(filename) as file_object:
+        special_location_list = json.load(file_object)
+
     is_food = False
     current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
     if current_location != 'Random Street' and current_location != 'Kinkakuji Temple':
         is_food = True
+
     return is_food
 
 
@@ -489,7 +490,7 @@ def game():
 
 def main():
     # game()
-    get_user_choice()
+    make_board()
 
 
 if __name__ == '__main__':
