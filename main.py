@@ -130,8 +130,9 @@ def get_user_choice():
     """
     while True:
         user_choice_list = ['1', '2', '3', '4']
-        user_choice = input(f'\nWhich direction do you want to go? '
-                            f'Type 1 for North, 2 for East, 3 for South, and 4 for West\n {user_choice_list} \n')
+        user_choice = input(f'\nWhich direction do you want to go? Enter your choice from 1-4.\n'
+                            f'1 North (↑)\n2 East (→)\n3 South (↓)\n4 West (←)\n'
+                            f'Your choice [1, 2, 3, 4]: ')
         if user_choice in user_choice_list:
             return int(user_choice)
         print('You need to choose from the list!')
@@ -485,7 +486,8 @@ def game():
 
 
 def main():
-    game()
+    # game()
+    get_user_choice()
 
 
 if __name__ == '__main__':
