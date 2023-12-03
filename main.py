@@ -280,6 +280,7 @@ def check_level_up(character):
     :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: check the user's current level based on KEP and print it
     """
+    time.sleep(1)
     current_kep = character['KEP']
     if current_kep <= 3:
         print('Now you are level 1.')
@@ -473,6 +474,7 @@ def game():
                 quiz = check_quiz()
                 if quiz:
                     play_quiz(character)
+                    check_level_up(character)
         else:
             print('Oops! You cannot go this direction.')
 
