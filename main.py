@@ -34,7 +34,6 @@ def make_board():
         location_tuple = location["x_coordinate"], location["y_coordinate"]
         board_dict[location_tuple] = location["name"]
 
-    print(board_dict)
     return board_dict
 
 
@@ -93,7 +92,7 @@ def show_status_and_map(character, board):
     :precondition: character must conform to the format specified in the parameter
     :postcondition: board must be a dictionary with keys and values described in param board
     """
-    print("[Map]")
+    print("\n[Map]")
     for y_coordinate in range(10):
         for x_coordinate in range(10):
             if (x_coordinate, y_coordinate) == (character['X-coordinate'], character['Y-coordinate']):
@@ -266,7 +265,6 @@ def play_quiz(character):
         print("You are wrong, your HP was decreased by 1")
         character["Current HP"] -= 1
     time.sleep(1)
-    print(character)
 
 
 def check_level_up(character):
@@ -349,6 +347,7 @@ def eat_food(character):
         print('Oishii! Your Current HP was increased by 1')
     else:
         print('You did\'t eat anything here.')
+    time.sleep(1)
 
 
 def fight_with_monk():
@@ -397,6 +396,7 @@ def fight_with_monk():
         elif monk_choice < user_choice:
             if monk_choice == 1 and user_choice == 3:
                 print('Oh no, you lost!')
+                time.sleep(2)
                 return False
             else:
                 print('Hooray, you won!')
@@ -407,6 +407,7 @@ def fight_with_monk():
                 return True
             else:
                 print('Oh no, you lost!')
+                time.sleep(2)
                 return False
 
 
