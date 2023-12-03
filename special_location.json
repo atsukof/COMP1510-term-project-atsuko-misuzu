@@ -1,7 +1,55 @@
 [
   {
+    "location": "(8, 6)",
+    "name": "Kiyomizudera Temple",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+    {
+    "location": "(4, 9)",
+    "name": "Kyoto Station",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+      {
+    "location": "(3, 6)",
+    "name": "Nishiki Market",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+      {
+    "location": "(4, 6)",
+    "name": "Nishiki Market",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+  {
+    "location": "(2, 5)",
+    "name": "Nijojo Castle",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+  {
+    "location": "(4, 5)",
+    "name": "Ueshima Coffee",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+  {
+    "location": "(3, 3)",
+    "name": "Kyoto Imperial Palace",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+  {
+    "location": "(7, 2)",
+    "name": "Kyoto University",
+    "explanation": "Osaka",
+    "food": "Green Tea"
+  },
+      {
     "location": "(0, 0)",
-    "name": "Kiyomizu",
+    "name": "Kinkakuji Temple",
     "explanation": "Osaka",
     "food": "Green Tea"
   }
