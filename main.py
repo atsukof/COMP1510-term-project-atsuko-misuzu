@@ -103,6 +103,8 @@ def show_status_and_map(character, board):
                 print("■■", end="")
             elif board[(x_coordinate, y_coordinate)] == "Random Street":
                 print("△△", end="")
+            elif board[(x_coordinate, y_coordinate)] == "Kinkakuji Temple":
+                print("●●", end="")
             else:
                 print("##", end="")
         print()
