@@ -334,6 +334,7 @@ def eat_food(character):
     food_choice = input('Do you want to eat food here? type "y" for yes, "n" for no: ')
     if food_choice.lower() == 'y':
         character['Current HP'] += 1
+        time.sleep(1)
         print('Oishii! Your Current HP was increased by 1')
     else:
         print('You did\'t eat anything here.')
@@ -499,7 +500,6 @@ def game():
 
 def main():
     game()
-    # fight_with_monk()
 
 
 if __name__ == '__main__':
