@@ -279,9 +279,9 @@ def check_level_up(character):
     """
     time.sleep(1)
     current_kep = character['KEP']
-    if current_kep <= 3:
+    if current_kep <= 2:
         print('Now you are level 1.')
-    elif current_kep < 7:
+    elif current_kep < 6:
         print('Now you are level 2.')
     else:
         print('You are level 3 now! You\'re ready to fight with monk at Kinkakuji Temple.')
@@ -303,7 +303,7 @@ def is_achieved_level_3(character):
     >>> is_achieved_level_3(user_character)
     False
     """
-    current_level = character['KEP'] >= 7
+    current_level = character['KEP'] >= 6
     return current_level
 
 
