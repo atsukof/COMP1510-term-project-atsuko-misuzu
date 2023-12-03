@@ -113,6 +113,7 @@ def show_status_and_map(character, board):
                    f"KEP: {character['KEP']}\n"
                    f"Location:({character['X-coordinate']}, {character['Y-coordinate']}) *plotted with ■■")
 
+    time.sleep(1)
     print(user_status)
 
 
@@ -263,6 +264,7 @@ def play_quiz(character):
     else:
         print("You are wrong, your HP was decreased by 1")
         character["Current HP"] -= 1
+    time.sleep(1)
     print(character)
 
 
