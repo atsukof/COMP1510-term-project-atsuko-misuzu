@@ -3,54 +3,53 @@
     "location": "(8, 6)",
     "name": "Kiyomizudera Temple",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Yatsuhashi"
   },
     {
     "location": "(4, 9)",
     "name": "Kyoto Station",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Ramen"
   },
       {
     "location": "(3, 6)",
     "name": "Nishiki Market",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Tofu"
   },
       {
     "location": "(4, 6)",
     "name": "Nishiki Market",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Tofu"
   },
   {
     "location": "(2, 5)",
     "name": "Nijojo Castle",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Match Tea"
   },
   {
     "location": "(4, 5)",
     "name": "Ueshima Coffee",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Brown Sugar Milk Coffee"
   },
   {
     "location": "(3, 3)",
     "name": "Kyoto Imperial Palace",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Mitarashi Dango"
   },
   {
     "location": "(7, 2)",
     "name": "Kyoto University",
     "explanation": "Osaka",
-    "food": "Green Tea"
+    "food": "Curry Rice"
   },
       {
     "location": "(0, 0)",
     "name": "Kinkakuji Temple",
-    "explanation": "Osaka",
-    "food": "Green Tea"
+    "explanation": "Osaka"
   }
 ]
