@@ -463,6 +463,7 @@ def game():
     complete = False
     while is_alive(character) and not complete:
         show_status_and_map(character, board)
+        check_level_up(character)
         direction = get_user_choice()
         valid_move = validate_direction(board, character, direction)
         if valid_move:
@@ -483,14 +484,21 @@ def game():
                 quiz = check_quiz()
                 if quiz:
                     play_quiz(character)
-                    check_level_up(character)
         else:
             print('Oops! You cannot go this direction.')
 
     if not is_alive(character):
         print("Your HP reached 0. Game over....")
     else:
-        print("You complete the game!")
+        print("You complete the game!\n Now you are a master of Kyoto!")
+        time.sleep(1)
+        message = """                                                 
+          ___   __    __  _    __   ___    __    _____   _  _   _      __    _____   _    __    __  _    __  
+         / _/  /__\  |  \| |  / _] | _ \  /  \  |_   _| | || | | |    /  \  |_   _| | |  /__\  |  \| | /' _/ 
+        | \__ | \/ | | | ' | | [/\ | v / | /\ |   | |   | \/ | | |_  | /\ |   | |   | | | \/ | | | ' | `._`. 
+         \__/  \__/  |_|\__|  \__/ |_|_\ |_||_|   |_|    \__/  |___| |_||_|   |_|   |_|  \__/  |_|\__| |___/ 
+        """
+        print(message)
 
 
 def main():
