@@ -324,8 +324,10 @@ def is_food_station(character, board):
 
     is_food = False
     current_location = board[(character['X-coordinate'], character['Y-coordinate'])]
-    if current_location != 'Random Street' and current_location != 'Kinkakuji Temple':
-        is_food = True
+    for location in special_location_list:
+        if current_location == location["name"] and current_location != 'Kinkakuji Temple':
+            is_food = True
+            print(f'Here is {current_location}. \n{location["explanation"]}You can eat {location["food"]} here.')
 
     return is_food
 
@@ -490,7 +492,9 @@ def game():
 
 def main():
     # game()
-    make_board()
+    board = make_board()
+    character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0}
+    is_food_station(character, board)
 
 
 if __name__ == '__main__':
