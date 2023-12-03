@@ -93,6 +93,7 @@ def show_status_and_map(character, board):
     :precondition: character must conform to the format specified in the parameter
     :postcondition: board must be a dictionary with keys and values described in param board
     """
+    print("[Map]")
     for y_coordinate in range(10):
         for x_coordinate in range(10):
             if (x_coordinate, y_coordinate) == (character['X-coordinate'], character['Y-coordinate']):
@@ -100,10 +101,11 @@ def show_status_and_map(character, board):
             elif board[(x_coordinate, y_coordinate)] == "Random Street":
                 print("△△", end="")
             elif board[(x_coordinate, y_coordinate)] == "Kinkakuji Temple":
-                print("●●", end="")
+                print("★★", end="")
             else:
                 print("##", end="")
         print()
+    print("\nGoal(Kinkakuji Temple) is ★★.")
 
     user_status = (f"\n[Your status]"
                    f"\nName: {character['Name']}"
@@ -491,10 +493,7 @@ def game():
 
 
 def main():
-    # game()
-    board = make_board()
-    character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0}
-    is_food_station(character, board)
+    game()
 
 
 if __name__ == '__main__':
