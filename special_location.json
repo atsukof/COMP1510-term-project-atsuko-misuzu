@@ -2,54 +2,54 @@
   {
     "location": "(8, 6)",
     "name": "Kiyomizudera Temple",
-    "explanation": "Osaka",
+    "explanation": "Kiyomizudera, or the \"Pure Water Temple,\" is a historic wooden temple offering panoramic views of Kyoto from its wooden terrace.\n",
     "food": "Yatsuhashi"
   },
     {
     "location": "(4, 9)",
     "name": "Kyoto Station",
-    "explanation": "Osaka",
+    "explanation": "Kyoto Station is a modern transportation hub with stunning architecture, offering convenience and a blend of traditional and contemporary elements.\n",
     "food": "Ramen"
   },
       {
     "location": "(3, 6)",
     "name": "Nishiki Market",
-    "explanation": "Osaka",
+    "explanation": "Nishiki Market is a lively, centuries-old marketplace that offers a delightful experience with its variety of traditional Kyoto ingredients and street food. \n",
     "food": "Tofu"
   },
       {
     "location": "(4, 6)",
     "name": "Nishiki Market",
-    "explanation": "Osaka",
+    "explanation": "Nishiki Market is a lively, centuries-old marketplace that offers a delightful experience with its variety of traditional Kyoto ingredients and street food. \n",
     "food": "Tofu"
   },
   {
     "location": "(2, 5)",
     "name": "Nijojo Castle",
-    "explanation": "Osaka",
+    "explanation": "Nijojo Castle is a UNESCO-listed castle with \"nightingale floors\" and beautiful gardens, offering insight into Japan's feudal history.\n",
     "food": "Match Tea"
   },
   {
     "location": "(4, 5)",
     "name": "Ueshima Coffee",
-    "explanation": "Osaka",
+    "explanation": "Ueshima Coffee is a popular Japanese coffee chain, offering a relaxing atmosphere and a chance to experience Japan's unique coffee culture. Misuzu was working at this store as a server.\n",
     "food": "Brown Sugar Milk Coffee"
   },
   {
     "location": "(3, 3)",
     "name": "Kyoto Imperial Palace",
-    "explanation": "Osaka",
+    "explanation": "Kyoto Imperial Palace is a majestic building surrounded by lush gardens, once the residence of the Imperial family.\n",
     "food": "Mitarashi Dango"
   },
   {
     "location": "(7, 2)",
     "name": "Kyoto University",
-    "explanation": "Osaka",
+    "explanation": "Kyoto Station is a modern transportation hub with stunning architecture, offering convenience and a blend of traditional and contemporary elements.\n",
     "food": "Curry Rice"
   },
       {
     "location": "(0, 0)",
     "name": "Kinkakuji Temple",
-    "explanation": "Osaka"
+    "explanation": "Kinkakuji, or the Golden Pavilion, is an iconic Zen Buddhist temple renowned for its shimmering gold exterior, surrounded by beautiful gardens.\n"
   }
 ]
