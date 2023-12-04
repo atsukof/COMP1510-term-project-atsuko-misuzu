@@ -37,6 +37,15 @@ def make_board():
     return board_dict
 
 
+def make_level_dict():
+    level_dict = {
+        "level 1": {"KEP_min": 0, "KEP_max": 2, "maximum_HP": 5, "name": "Kyoto rookie"},
+        "level 2": {"KEP_min": 3, "KEP_max": 5, "maximum_HP": 7, "name": "Kyoto skilled novice"},
+        "level 3": {"KEP_min": 6, "KEP_max": 9999, "maximum_HP": 10, "name": "Kyoto expert"},
+    }
+    return level_dict
+
+
 def make_character():
     """
     Create a dictionary with character's information.
@@ -46,7 +55,7 @@ def make_character():
     :postcondition: creates a dictionary with character's information
     :return: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     """
-    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0}
+    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0}
     while True:
         user_name = input('Enter your name: ')
         user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
@@ -268,24 +277,26 @@ def play_quiz(character):
     time.sleep(1)
 
 
-def check_level_up(character):
+def check_level_up(character, level_dictionary):
     """
     Check the user's current level based on KEP and print it.
 
     Print if the user's level has increased.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param level_dictionary: a dictionary #あとで書く
     :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: check the user's current level based on KEP and print it
     """
     time.sleep(1)
     current_kep = character['KEP']
-    if current_kep <= 2:
-        print('Now you are Kyoto rookie (level 1).')
-    elif current_kep < 6:
-        print('Now you are Kyoto skilled novice (level 2).')
+    if current_kep <= level_dictionary["level 1"]["KEP_max"]:
+        print(f'Now you are {level_dictionary["level 1"]["name"]} (level 1).')
+    elif current_kep <= level_dictionary["level 2"]["KEP_max"]:
+        print(f'Now you are {level_dictionary["level 2"]["name"]} (level 2).')
     else:
-        print('You are Kyoto expert (level 3) now! You\'re ready to fight with monk at Kinkakuji Temple.')
+        print(f'You are {level_dictionary["level 3"]["name"]} (level 3) now! '
+              f'You\'re ready to fight with monk at Kinkakuji Temple.')
 
 
 def is_achieved_level_3(character):
@@ -465,11 +476,12 @@ def game():
     board = make_board()
     character = make_character()
     instruction()
+    level_dictionary = make_level_dict()
 
     complete = False
     while is_alive(character) and not complete:
         show_status_and_map(character, board)
-        check_level_up(character)
+        check_level_up(character, level_dictionary)
         direction = get_user_choice()
         valid_move = validate_direction(board, character, direction)
         if valid_move:
@@ -508,8 +520,13 @@ def game():
 
 
 def main():
+    board = make_board()
+    character = make_character()
+    level_dictionary = make_level_dict()
+
     # game()
-    fight_with_monk()
+    # fight_with_monk()
+    check_level_up(character, level_dictionary)
 
 
 if __name__ == '__main__':
