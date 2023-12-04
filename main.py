@@ -384,26 +384,33 @@ def fight_with_monk():
       .F    "!    .MMMMM`M;HMMMMb     T^   -b
     """
     print(monk_pic)
+    print('Monk wants to fight with you. Let\'s play rock-paper-scissors game!')
     user_won = False
+
     while True:
         choice_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
         monk_choice = random.randint(1, 3)
-        user_choice = int(input('Monk wants to fight with you. Let\'s play rock-paper-scissors game!\n'
-                                'Which do you want to choose?\n'
-                                'Type 1 for rock, 2 for paper, 3 for scissors: '))
-        print(f'You threw {choice_dictionary[user_choice]}, and the monk threw {choice_dictionary[monk_choice]}!')
+        user_choice_option_list = ['1', '2', '3']
+        user_choice = input(f'Which do you want to choose? Type 1 for rock, 2 for paper, 3 for scissors.\n'
+                            f'Your choice {user_choice_option_list}: ')
+        if user_choice not in user_choice_option_list:
+            print(f'You should choose from {user_choice_option_list}!')
+            continue
+
+        int_user_choice = int(user_choice)
+        print(f'You threw {choice_dictionary[int_user_choice]}, and the monk threw {choice_dictionary[monk_choice]}!')
         if monk_choice == user_choice:
             print('Draw! Try one more time.')
             time.sleep(1)
             continue
-        elif monk_choice < user_choice:
-            if monk_choice == 1 and user_choice == 3:
+        elif monk_choice < int_user_choice:
+            if monk_choice == 1 and int_user_choice == 3:
                 break
             else:
                 user_won = True
                 break
         else:
-            if monk_choice == 3 and user_choice == 1:
+            if monk_choice == 3 and int_user_choice == 1:
                 user_won = True
                 break
             else:
