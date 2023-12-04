@@ -39,9 +39,9 @@ def make_board():
 
 def make_level_dict():
     level_dict = {
-        "level 1": {"KEP_min": 0, "KEP_max": 2, "maximum_HP": 5, "name": "Kyoto rookie"},
-        "level 2": {"KEP_min": 3, "KEP_max": 5, "maximum_HP": 7, "name": "Kyoto skilled novice"},
-        "level 3": {"KEP_min": 6, "KEP_max": 9999, "maximum_HP": 10, "name": "Kyoto expert"},
+        "level 1": {"KEP_max": 2, "maximum_HP": 5, "name": "Kyoto rookie"},
+        "level 2": {"KEP_max": 5, "maximum_HP": 7, "name": "Kyoto skilled novice"},
+        "level 3": {"KEP_max": 9999, "maximum_HP": 10, "name": "Kyoto expert"},
     }
     return level_dict
 
@@ -55,7 +55,7 @@ def make_character():
     :postcondition: creates a dictionary with character's information
     :return: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     """
-    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0}
+    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0, 'Level': "level 1"}
     while True:
         user_name = input('Enter your name: ')
         user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
@@ -115,10 +115,11 @@ def show_status_and_map(character, board):
         print()
     print("\nGoal(Kinkakuji Temple) is ★★.")
 
-    user_status = (f"\n[Your status]"
-                   f"\nName: {character['Name']}"
-                   f"\nCurrent HP: {character['Current HP']}\n"
+    user_status = (f"\n[Your status]\n"
+                   f"Name: {character['Name']}\n"
+                   f"Current HP: {character['Current HP']}\n"
                    f"KEP: {character['KEP']}\n"
+                   f"Level: {character['Level']}\n"
                    f"Location:({character['X-coordinate']}, {character['Y-coordinate']}) *plotted with ■■")
 
     time.sleep(1)
@@ -277,7 +278,7 @@ def play_quiz(character):
     time.sleep(1)
 
 
-def check_level_up(character, level_dictionary):
+def check_level(character, level_dictionary):
     """
     Check the user's current level based on KEP and print it.
 
@@ -294,9 +295,18 @@ def check_level_up(character, level_dictionary):
         print(f'Now you are {level_dictionary["level 1"]["name"]} (level 1).')
     elif current_kep <= level_dictionary["level 2"]["KEP_max"]:
         print(f'Now you are {level_dictionary["level 2"]["name"]} (level 2).')
+        character["Level"] = "level 2"
     else:
         print(f'You are {level_dictionary["level 3"]["name"]} (level 3) now! '
               f'You\'re ready to fight with monk at Kinkakuji Temple.')
+        character["Level"] = "level 3"
+
+# def print_level(level):
+#     """
+#
+#     :param level:
+#     :return:
+#     """
 
 
 def is_achieved_level_3(character):
@@ -344,19 +354,28 @@ def is_food_station(character, board):
     return is_food
 
 
-def eat_food(character):
+def eat_food(character, level_dictionary):
     """
     Increase the Current HP by eating food if user want to.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :param level_dictionary: a dictionary #あとで書く
     :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: increase the Current HP by eating food if user want to
     """
+    user_level = character["Level"]
+    max_hp = level_dictionary[user_level]["maximum_HP"]
+    user_hp = character["Current HP"]
+
     food_choice = input('Do you want to eat food here? type "y" for yes, "n" for no: ')
     if food_choice.lower() == 'y':
-        character['Current HP'] += 1
-        time.sleep(1)
-        print('Oishii! Your Current HP was increased by 1')
+        if user_hp < max_hp:
+            character['Current HP'] += 1
+            time.sleep(1)
+            print('Oishii! Your Current HP was increased by 1')
+        else:
+            print('You are full. Your HP is maximum. You could not eat the food.')
+
     else:
         print('You did\'t eat anything here.')
     time.sleep(1)
@@ -488,14 +507,15 @@ def game():
     complete = False
     while is_alive(character) and not complete:
         show_status_and_map(character, board)
-        check_level_up(character, level_dictionary)
+        check_level(character, level_dictionary)
+        # print_level(user_level)
         direction = get_user_choice()
         valid_move = validate_direction(board, character, direction)
         if valid_move:
             move_user(character, direction)
 
             if is_food_station(character, board):
-                eat_food(character)
+                eat_food(character, level_dictionary)
 
             kinkakuji = is_kinkakuji(character, board)
             level_3 = is_achieved_level_3(character)
@@ -527,13 +547,7 @@ def game():
 
 
 def main():
-    board = make_board()
-    character = make_character()
-    level_dictionary = make_level_dict()
-
-    # game()
-    # fight_with_monk()
-    check_level_up(character, level_dictionary)
+    game()
 
 
 if __name__ == '__main__':
