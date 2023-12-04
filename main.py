@@ -256,6 +256,7 @@ def play_quiz(character):
                f"4. {quiz_list[random_number]['4']}")
     print(options)
     time.sleep(1)
+
     user_answer = input("Enter your answer with a number:")
 
     if user_answer == quiz_list[random_number]["ans"]:
@@ -280,11 +281,11 @@ def check_level_up(character):
     time.sleep(1)
     current_kep = character['KEP']
     if current_kep <= 2:
-        print('Now you are level 1.')
+        print('Now you are Kyoto rookie (level 1).')
     elif current_kep < 6:
-        print('Now you are level 2.')
+        print('Now you are Kyoto skilled novice (level 2).')
     else:
-        print('You are level 3 now! You\'re ready to fight with monk at Kinkakuji Temple.')
+        print('You are Kyoto expert (level 3) now! You\'re ready to fight with monk at Kinkakuji Temple.')
 
 
 def is_achieved_level_3(character):
