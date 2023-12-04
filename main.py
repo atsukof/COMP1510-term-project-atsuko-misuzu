@@ -366,7 +366,7 @@ def fight_with_monk():
         `        J%              H,        `   `
     `     `  `   #    ..    ..   -]  `  `
        `       ..M          `    -N,         `
-              .M`     MF `  MF     ?b      `    `
+              .M`     NF `  NF     ?b      `    `
    `    `  `   N,.,      ,.    ` ...F   `
       `         ?Tb             .M"!         `
                   ?m.   777^   .M'         `    `
@@ -383,32 +383,37 @@ def fight_with_monk():
       .F    "!    .MMMMM`M;HMMMMb     T^   -b
     """
     print(monk_pic)
+    user_won = False
     while True:
         choice_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
         monk_choice = random.randint(1, 3)
-        user_choice = int(input('Monk wants to fight with you. Let\'s play rock-paper-scissors game!'
-                                'Which do you want to choose? '
+        user_choice = int(input('Monk wants to fight with you. Let\'s play rock-paper-scissors game!\n'
+                                'Which do you want to choose?\n'
                                 'Type 1 for rock, 2 for paper, 3 for scissors: '))
         print(f'You threw {choice_dictionary[user_choice]}, and the monk threw {choice_dictionary[monk_choice]}!')
         if monk_choice == user_choice:
             print('Draw! Try one more time.')
+            time.sleep(1)
             continue
         elif monk_choice < user_choice:
             if monk_choice == 1 and user_choice == 3:
-                print('Oh no, you lost!')
-                time.sleep(2)
-                return False
+                break
             else:
-                print('Hooray, you won!')
-                return True
+                user_won = True
+                break
         else:
             if monk_choice == 3 and user_choice == 1:
-                print('Hooray, you won!')
-                return True
+                user_won = True
+                break
             else:
-                print('Oh no, you lost!')
-                time.sleep(2)
-                return False
+                break
+
+    if user_won:
+        print('Hooray, you won!')
+    else:
+        print('Oh no, you lost!')
+    time.sleep(2)
+    return user_won
 
 
 def lose_monk(character):
@@ -502,7 +507,8 @@ def game():
 
 
 def main():
-    game()
+    # game()
+    fight_with_monk()
 
 
 if __name__ == '__main__':
