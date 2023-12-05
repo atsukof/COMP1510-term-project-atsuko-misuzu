@@ -301,13 +301,6 @@ def check_level(character, level_dictionary):
               f'You\'re ready to fight with monk at Kinkakuji Temple.')
         character["Level"] = "level 3"
 
-# def print_level(level):
-#     """
-#
-#     :param level:
-#     :return:
-#     """
-
 
 def is_achieved_level_3(character):
     """
