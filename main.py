@@ -71,8 +71,8 @@ def make_character():
         elif user_response.lower() == 'y':
             print(f'Hello {user_name}, let\'s explore Kyoto with us!')
             break
-        while user_response.lower() != 'y' and user_response.lower() != 'n':
-            user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
+        else:
+            print('Your input is not valid, try again.')
 
     character_dict['Name'] = user_name
     return character_dict
@@ -547,7 +547,8 @@ def game():
 
 
 def main():
-    game()
+    # game()
+    make_character()
 
 
 if __name__ == '__main__':
