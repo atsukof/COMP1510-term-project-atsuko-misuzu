@@ -37,6 +37,14 @@ def make_board():
 
 
 def make_level_dict():
+    """
+    Create a dictionary that contains levels and their explanation.
+    :postcondition: create a dictionary that contains levels and their explanation
+    :return: a dictionry that contains levels and their explanation
+
+    >>> make_level_dict()
+    {'level 1': {'KEP_max': 2, 'maximum_HP': 5, 'name': 'Kyoto rookie'}, 'level 2': {'KEP_max': 5, 'maximum_HP': 7, 'name': 'Kyoto skilled novice'}, 'level 3': {'KEP_max': 9999, 'maximum_HP': 10, 'name': 'Kyoto expert'}}
+    """
     level_dict = {
         "level 1": {"KEP_max": 2, "maximum_HP": 5, "name": "Kyoto rookie"},
         "level 2": {"KEP_max": 5, "maximum_HP": 7, "name": "Kyoto skilled novice"},
