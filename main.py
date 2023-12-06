@@ -62,7 +62,7 @@ def make_character():
     :postcondition: creates a dictionary with character's information
     :return: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     """
-    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0, 'Level': "level 1"}
+    character_dict = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0, 'Level': 'level 1'}
     while True:
         user_name = input('Enter your name: ')
         user_response = input(f'Are you okay with {user_name}? type "y" for yes, "n" for no: ')
@@ -295,6 +295,20 @@ def check_level(character, level_dictionary):
     :param level_dictionary: a dictionary #あとで書く
     :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: check the user's current level based on KEP and print it
+
+    >>> my_character = {'Name': 'Atsuko', 'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0, 'Level': 'level 1'}
+    >>> level_dict = {'level 1': {'KEP_max': 2, 'maximum_HP': 5, 'name': 'Kyoto rookie'}, 'level 2': {'KEP_max': 5, 'maximum_HP': 7, 'name': 'Kyoto skilled novice'}, 'level 3': {'KEP_max': 9999, 'maximum_HP': 10, 'name': 'Kyoto expert'}}
+    >>> check_level(my_character, level_dict)
+    Now you are Kyoto rookie (level 1).
+    >>> my_character
+    {'Name': 'Atsuko', 'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0, 'Level': 'level 1'}
+
+    >>> your_character = {'Name': 'Misuzu', 'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 6, 'Level': 'level 2'}
+    >>> level_dict_2 = {'level 1': {'KEP_max': 2, 'maximum_HP': 5, 'name': 'Kyoto rookie'}, 'level 2': {'KEP_max': 5, 'maximum_HP': 7, 'name': 'Kyoto skilled novice'}, 'level 3': {'KEP_max': 9999, 'maximum_HP': 10, 'name': 'Kyoto expert'}}
+    >>> check_level(your_character, level_dict)
+    You are Kyoto expert (level 3) now! You're ready to fight with monk at Kinkakuji Temple.
+    >>> your_character
+    {'Name': 'Misuzu', 'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 6, 'Level': 'level 3'}
     """
     time.sleep(1)
     current_kep = character['KEP']
