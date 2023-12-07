@@ -3,7 +3,7 @@ import random
 import json
 
 
-def make_board():
+def make_board() -> dict:
     """
     Create a 10 x 10 game board.
 
@@ -36,7 +36,7 @@ def make_board():
     return board_dict
 
 
-def make_level_dict():
+def make_level_dict() -> dict:
     """
     Create a dictionary that contains levels and their explanation.
     :postcondition: create a dictionary that contains levels and their explanation
@@ -53,7 +53,7 @@ def make_level_dict():
     return level_dict
 
 
-def make_character():
+def make_character() -> dict:
     """
     Create a dictionary with character's information.
 
@@ -78,7 +78,7 @@ def make_character():
     return character_dict
 
 
-def instruction():
+def instruction() -> None:
     """
     Print instruction of the game.
 
@@ -99,7 +99,7 @@ def instruction():
     time.sleep(1)
 
 
-def show_status_and_map(character, board):
+def show_status_and_map(character: dict, board: dict) -> None:
     """
     Print user's current location in map and character.
 
@@ -133,7 +133,7 @@ def show_status_and_map(character, board):
     print(user_status)
 
 
-def get_user_choice():
+def get_user_choice() -> int:
     """
     Ask a user to enter the direction they wish to travel and return the user's choice.
 
@@ -152,7 +152,7 @@ def get_user_choice():
         print('You need to choose from the list!')
 
 
-def validate_direction(board, character, direction):
+def validate_direction(board: dict, character: dict, direction: int) -> bool:
     """
     Validate if the character can move to the specified direction.
 
@@ -183,7 +183,7 @@ def validate_direction(board, character, direction):
     return is_valid
 
 
-def move_user(character, direction):
+def move_user(character: dict, direction: int) -> None:
     """
     Update character's X- and Y-coordinates depending on the direction selected by the user.
 
@@ -209,7 +209,7 @@ def move_user(character, direction):
     character["Y-coordinate"] += move[1]
 
 
-def is_kinkakuji(character, board):
+def is_kinkakuji(character: dict, board: dict) -> bool:
     """
     Check if the character has reached the goal.
 
@@ -236,7 +236,7 @@ def is_kinkakuji(character, board):
     return kinkakuji
 
 
-def check_quiz():
+def check_quiz() -> bool:
     """
     Return True with 30% of chance.
 
@@ -250,7 +250,7 @@ def check_quiz():
     return encounter_quiz <= 3
 
 
-def play_quiz(character):
+def play_quiz(character: dict) -> None:
     """
     Print random quiz.
 
@@ -292,7 +292,7 @@ def play_quiz(character):
         time.sleep(1)
 
 
-def check_level(character, level_dictionary):
+def check_level(character: dict, level_dictionary: dict) -> None:
     """
     Check the user's current level based on KEP and print it.
 
@@ -330,7 +330,7 @@ def check_level(character, level_dictionary):
         character["Level"] = "level 3"
 
 
-def is_achieved_level_3(character):
+def is_achieved_level_3(character: dict) -> bool:
     """
     Check if the character reach level 3
 
@@ -350,7 +350,7 @@ def is_achieved_level_3(character):
     return current_level
 
 
-def is_food_station(character, board):
+def is_food_station(character: dict, board: dict) -> bool:
     """
     Check if the character has reached the food station.
 
@@ -375,7 +375,7 @@ def is_food_station(character, board):
     return is_food
 
 
-def eat_food(character, level_dictionary):
+def eat_food(character: dict, level_dictionary: dict) -> None:
     """
     Increase the Current HP by eating food if user want to.
 
@@ -402,7 +402,7 @@ def eat_food(character, level_dictionary):
     time.sleep(1)
 
 
-def fight_with_monk():
+def fight_with_monk() -> bool:
     """
     Get user input and compare it with the number that is randomly generated.
 
@@ -475,7 +475,7 @@ def fight_with_monk():
     return user_won
 
 
-def lose_monk(character):
+def lose_monk(character: dict) -> None:
     """
     Decrease character's Current HP by 2.
 
@@ -496,7 +496,7 @@ def lose_monk(character):
     character['Current HP'] -= 2
 
 
-def is_alive(character):
+def is_alive(character: dict) -> bool:
     """
     Check if character's Current HP reaches zero or not.
 
