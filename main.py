@@ -505,10 +505,10 @@ def is_alive(character):
     :postcondition: check if the current HP in character reaches zero or not
     :return: a Boolean
 
-    >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 3, 'Current HP': 3, 'KEP': 5, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 3, 'Current HP': 3, 'KEP': 5, 'Level': 'level 2', 'Name': 'Chris'}
     >>> is_alive(user_character)
     True
-    >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 3, 'Current HP': 0, 'KEP': 3, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 3, 'Current HP': 0, 'KEP': 3, 'Level': 'level 2', 'Name': 'Chris'}
     >>> is_alive(user_character)
     False
     """
