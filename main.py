@@ -274,15 +274,22 @@ def play_quiz(character):
     print(options)
     time.sleep(1)
 
-    user_answer = input("Enter your answer with a number:")
+    while True:
+        answer_option = ['1', '2', '3', '4']
+        user_answer = input(f"Enter your answer with a number {answer_option}:")
 
-    if user_answer == quiz_list[random_number]["ans"]:
-        print("You are correct, your KEP was increased by 1")
-        character["KEP"] += 1
-    else:
-        print("You are wrong, your HP was decreased by 1")
-        character["Current HP"] -= 1
-    time.sleep(1)
+        if user_answer == quiz_list[random_number]["ans"]:
+            print("You are correct, your KEP was increased by 1")
+            character["KEP"] += 1
+            break
+        elif user_answer in answer_option:
+            print("You are wrong, your HP was decreased by 1")
+            character["Current HP"] -= 1
+            break
+        else:
+            print('Something is wrong... Enter your answer again.')
+
+        time.sleep(1)
 
 
 def check_level(character, level_dictionary):
@@ -592,7 +599,7 @@ def main():
              (9, 3): 'Random Street', (9, 4): 'Random Street', (9, 5): 'Random Street', (9, 6): 'Random Street',
              (9, 7): 'Random Street', (9, 8): 'Random Street', (9, 9): 'Random Street'}
 
-    # show_status_and_map(character, board)
+    play_quiz(character)
 
 
 if __name__ == '__main__':
