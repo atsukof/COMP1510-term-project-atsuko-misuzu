@@ -2,19 +2,19 @@
 # COMP-1510-202330-Term Project Make Me A Game
 
 ## 0. Student Information
-### Your name:
+### Name:
 
 Atsuko Uemura
 
 Misuzu Taniguchi
 
-### Your student number:
+### Student number:
 
 A01373940
 
 A01367008
 
-### Your GitHub username:
+### GitHub username:
 
 atsukof
 
