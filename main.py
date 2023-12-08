@@ -162,11 +162,11 @@ def validate_direction(board: dict, character: dict, direction: int) -> bool:
     :return: a Boolean
 
     >>> user_board = {(0, 0): 'Kinkakuji Temple', (0, 1): 'Random Street', (0, 2): 'Random Street', (0, 3): 'Random Street', (0, 4): 'Random Street', (0, 5): 'Random Street', (0, 6): 'Random Street', (0, 7): 'Random Street', (0, 8): 'Random Street', (0, 9): 'Random Street', (1, 0): 'Random Street', (1, 1): 'Random Street', (1, 2): 'Random Street', (1, 3): 'Random Street', (1, 4): 'Random Street', (1, 5): 'Random Street', (1, 6): 'Random Street', (1, 7): 'Random Street', (1, 8): 'Random Street', (1, 9): 'Random Street', (2, 0): 'Random Street', (2, 1): 'Random Street', (2, 2): 'Random Street', (2, 3): 'Random Street', (2, 4): 'Random Street', (2, 5): 'Nijojo Castle', (2, 6): 'Random Street', (2, 7): 'Random Street', (2, 8): 'Random Street', (2, 9): 'Random Street', (3, 0): 'Random Street', (3, 1): 'Random Street', (3, 2): 'Random Street', (3, 3): 'Kyoto Imperial Palace', (3, 4): 'Random Street', (3, 5): 'Random Street', (3, 6): 'Nishiki Market', (3, 7): 'Random Street', (3, 8): 'Random Street', (3, 9): 'Random Street', (4, 0): 'Random Street', (4, 1): 'Random Street', (4, 2): 'Random Street', (4, 3): 'Random Street', (4, 4): 'Random Street', (4, 5): 'Ueshima Coffee', (4, 6): 'Nishiki Market', (4, 7): 'Random Street', (4, 8): 'Random Street', (4, 9): 'Kyoto Station', (5, 0): 'Random Street', (5, 1): 'Random Street', (5, 2): 'Random Street', (5, 3): 'Random Street', (5, 4): 'Random Street', (5, 5): 'Random Street', (5, 6): 'Random Street', (5, 7): 'Random Street', (5, 8): 'Random Street', (5, 9): 'Random Street', (6, 0): 'Random Street', (6, 1): 'Random Street', (6, 2): 'Random Street', (6, 3): 'Random Street', (6, 4): 'Random Street', (6, 5): 'Random Street', (6, 6): 'Random Street', (6, 7): 'Random Street', (6, 8): 'Random Street', (6, 9): 'Random Street', (7, 0): 'Random Street', (7, 1): 'Random Street', (7, 2): 'Kyoto University', (7, 3): 'Random Street', (7, 4): 'Random Street', (7, 5): 'Random Street', (7, 6): 'Random Street', (7, 7): 'Random Street', (7, 8): 'Random Street', (7, 9): 'Random Street', (8, 0): 'Random Street', (8, 1): 'Random Street', (8, 2): 'Random Street', (8, 3): 'Random Street', (8, 4): 'Random Street', (8, 5): 'Random Street', (8, 6): 'Kiyomizudera Temple', (8, 7): 'Random Street', (8, 8): 'Random Street', (8, 9): 'Random Street', (9, 0): 'Random Street', (9, 1): 'Random Street', (9, 2): 'Random Street', (9, 3): 'Random Street', (9, 4): 'Random Street', (9, 5): 'Random Street', (9, 6): 'Random Street', (9, 7): 'Random Street', (9, 8): 'Random Street', (9, 9): 'Random Street'}
-    >>> user_character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris', 'Level': 'level 1'}
     >>> validate_direction(user_board, user_character, 3)
     False
     >>> user_board = {(0, 0): 'Kinkakuji Temple', (0, 1): 'Random Street', (0, 2): 'Random Street', (0, 3): 'Random Street', (0, 4): 'Random Street', (0, 5): 'Random Street', (0, 6): 'Random Street', (0, 7): 'Random Street', (0, 8): 'Random Street', (0, 9): 'Random Street', (1, 0): 'Random Street', (1, 1): 'Random Street', (1, 2): 'Random Street', (1, 3): 'Random Street', (1, 4): 'Random Street', (1, 5): 'Random Street', (1, 6): 'Random Street', (1, 7): 'Random Street', (1, 8): 'Random Street', (1, 9): 'Random Street', (2, 0): 'Random Street', (2, 1): 'Random Street', (2, 2): 'Random Street', (2, 3): 'Random Street', (2, 4): 'Random Street', (2, 5): 'Nijojo Castle', (2, 6): 'Random Street', (2, 7): 'Random Street', (2, 8): 'Random Street', (2, 9): 'Random Street', (3, 0): 'Random Street', (3, 1): 'Random Street', (3, 2): 'Random Street', (3, 3): 'Kyoto Imperial Palace', (3, 4): 'Random Street', (3, 5): 'Random Street', (3, 6): 'Nishiki Market', (3, 7): 'Random Street', (3, 8): 'Random Street', (3, 9): 'Random Street', (4, 0): 'Random Street', (4, 1): 'Random Street', (4, 2): 'Random Street', (4, 3): 'Random Street', (4, 4): 'Random Street', (4, 5): 'Ueshima Coffee', (4, 6): 'Nishiki Market', (4, 7): 'Random Street', (4, 8): 'Random Street', (4, 9): 'Kyoto Station', (5, 0): 'Random Street', (5, 1): 'Random Street', (5, 2): 'Random Street', (5, 3): 'Random Street', (5, 4): 'Random Street', (5, 5): 'Random Street', (5, 6): 'Random Street', (5, 7): 'Random Street', (5, 8): 'Random Street', (5, 9): 'Random Street', (6, 0): 'Random Street', (6, 1): 'Random Street', (6, 2): 'Random Street', (6, 3): 'Random Street', (6, 4): 'Random Street', (6, 5): 'Random Street', (6, 6): 'Random Street', (6, 7): 'Random Street', (6, 8): 'Random Street', (6, 9): 'Random Street', (7, 0): 'Random Street', (7, 1): 'Random Street', (7, 2): 'Kyoto University', (7, 3): 'Random Street', (7, 4): 'Random Street', (7, 5): 'Random Street', (7, 6): 'Random Street', (7, 7): 'Random Street', (7, 8): 'Random Street', (7, 9): 'Random Street', (8, 0): 'Random Street', (8, 1): 'Random Street', (8, 2): 'Random Street', (8, 3): 'Random Street', (8, 4): 'Random Street', (8, 5): 'Random Street', (8, 6): 'Kiyomizudera Temple', (8, 7): 'Random Street', (8, 8): 'Random Street', (8, 9): 'Random Street', (9, 0): 'Random Street', (9, 1): 'Random Street', (9, 2): 'Random Street', (9, 3): 'Random Street', (9, 4): 'Random Street', (9, 5): 'Random Street', (9, 6): 'Random Street', (9, 7): 'Random Street', (9, 8): 'Random Street', (9, 9): 'Random Street'}
-    >>> user_character = {'X-coordinate': 4, 'Y-coordinate': 7, 'Current HP': 4, 'KEP': 1, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 4, 'Y-coordinate': 7, 'Current HP': 4, 'KEP': 1, 'Name': 'Chris', 'Level': 'level 1'}
     >>> validate_direction(user_board, user_character, 4)
     True
     """
@@ -189,11 +189,11 @@ def move_user(character: dict, direction: int) -> None:
     :precondition: direction must be an integer between 1 and 4 inclusive
     :postcondition: updates character's X- and Y-coordinates depending on the direction selected by the user
 
-    >>> user_character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris',  'Level': 'level 1'}
     >>> move_user(user_character, 1)
     >>> user_character
     {'X-coordinate': 4, 'Y-coordinate': 8, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris'}
-    >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 5, 'Current HP': 4, 'KEP': 1, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 5, 'Current HP': 4, 'KEP': 1, 'Name': 'Chris',  'Level': 'level 1'}
     >>> move_user(user_character, 4)
     >>> user_character
     {'X-coordinate': 2, 'Y-coordinate': 5, 'Current HP': 4, 'KEP': 1, 'Name': 'Chris'}
@@ -216,11 +216,11 @@ def is_kinkakuji(character: dict, board: dict) -> bool:
     :postcondition: checks if the character is in the goal
     :return: a Boolean
 
-    >>> user_character = {'X-coordinate': 5, 'Y-coordinate': 6, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 5, 'Y-coordinate': 6, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris', 'Level': 'level 1'}
     >>> user_board = {(0, 0): 'Kinkakuji Temple', (0, 1): 'Random Street', (0, 2): 'Random Street', (0, 3): 'Random Street', (0, 4): 'Random Street', (0, 5): 'Random Street', (0, 6): 'Random Street', (0, 7): 'Random Street', (0, 8): 'Random Street', (0, 9): 'Random Street', (1, 0): 'Random Street', (1, 1): 'Random Street', (1, 2): 'Random Street', (1, 3): 'Random Street', (1, 4): 'Random Street', (1, 5): 'Random Street', (1, 6): 'Random Street', (1, 7): 'Random Street', (1, 8): 'Random Street', (1, 9): 'Random Street', (2, 0): 'Random Street', (2, 1): 'Random Street', (2, 2): 'Random Street', (2, 3): 'Random Street', (2, 4): 'Random Street', (2, 5): 'Nijojo Castle', (2, 6): 'Random Street', (2, 7): 'Random Street', (2, 8): 'Random Street', (2, 9): 'Random Street', (3, 0): 'Random Street', (3, 1): 'Random Street', (3, 2): 'Random Street', (3, 3): 'Kyoto Imperial Palace', (3, 4): 'Random Street', (3, 5): 'Random Street', (3, 6): 'Nishiki Market', (3, 7): 'Random Street', (3, 8): 'Random Street', (3, 9): 'Random Street', (4, 0): 'Random Street', (4, 1): 'Random Street', (4, 2): 'Random Street', (4, 3): 'Random Street', (4, 4): 'Random Street', (4, 5): 'Ueshima Coffee', (4, 6): 'Nishiki Market', (4, 7): 'Random Street', (4, 8): 'Random Street', (4, 9): 'Kyoto Station', (5, 0): 'Random Street', (5, 1): 'Random Street', (5, 2): 'Random Street', (5, 3): 'Random Street', (5, 4): 'Random Street', (5, 5): 'Random Street', (5, 6): 'Random Street', (5, 7): 'Random Street', (5, 8): 'Random Street', (5, 9): 'Random Street', (6, 0): 'Random Street', (6, 1): 'Random Street', (6, 2): 'Random Street', (6, 3): 'Random Street', (6, 4): 'Random Street', (6, 5): 'Random Street', (6, 6): 'Random Street', (6, 7): 'Random Street', (6, 8): 'Random Street', (6, 9): 'Random Street', (7, 0): 'Random Street', (7, 1): 'Random Street', (7, 2): 'Kyoto University', (7, 3): 'Random Street', (7, 4): 'Random Street', (7, 5): 'Random Street', (7, 6): 'Random Street', (7, 7): 'Random Street', (7, 8): 'Random Street', (7, 9): 'Random Street', (8, 0): 'Random Street', (8, 1): 'Random Street', (8, 2): 'Random Street', (8, 3): 'Random Street', (8, 4): 'Random Street', (8, 5): 'Random Street', (8, 6): 'Kiyomizudera Temple', (8, 7): 'Random Street', (8, 8): 'Random Street', (8, 9): 'Random Street', (9, 0): 'Random Street', (9, 1): 'Random Street', (9, 2): 'Random Street', (9, 3): 'Random Street', (9, 4): 'Random Street', (9, 5): 'Random Street', (9, 6): 'Random Street', (9, 7): 'Random Street', (9, 8): 'Random Street', (9, 9): 'Random Street'}
     >>> is_kinkakuji(user_character, user_board)
     False
-    >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 3, 'KEP': 7, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 3, 'KEP': 7, 'Name': 'Chris',  'Level': 'level 3'}
     >>> user_board = {(0, 0): 'Kinkakuji Temple', (0, 1): 'Random Street', (0, 2): 'Random Street', (0, 3): 'Random Street', (0, 4): 'Random Street', (0, 5): 'Random Street', (0, 6): 'Random Street', (0, 7): 'Random Street', (0, 8): 'Random Street', (0, 9): 'Random Street', (1, 0): 'Random Street', (1, 1): 'Random Street', (1, 2): 'Random Street', (1, 3): 'Random Street', (1, 4): 'Random Street', (1, 5): 'Random Street', (1, 6): 'Random Street', (1, 7): 'Random Street', (1, 8): 'Random Street', (1, 9): 'Random Street', (2, 0): 'Random Street', (2, 1): 'Random Street', (2, 2): 'Random Street', (2, 3): 'Random Street', (2, 4): 'Random Street', (2, 5): 'Nijojo Castle', (2, 6): 'Random Street', (2, 7): 'Random Street', (2, 8): 'Random Street', (2, 9): 'Random Street', (3, 0): 'Random Street', (3, 1): 'Random Street', (3, 2): 'Random Street', (3, 3): 'Kyoto Imperial Palace', (3, 4): 'Random Street', (3, 5): 'Random Street', (3, 6): 'Nishiki Market', (3, 7): 'Random Street', (3, 8): 'Random Street', (3, 9): 'Random Street', (4, 0): 'Random Street', (4, 1): 'Random Street', (4, 2): 'Random Street', (4, 3): 'Random Street', (4, 4): 'Random Street', (4, 5): 'Ueshima Coffee', (4, 6): 'Nishiki Market', (4, 7): 'Random Street', (4, 8): 'Random Street', (4, 9): 'Kyoto Station', (5, 0): 'Random Street', (5, 1): 'Random Street', (5, 2): 'Random Street', (5, 3): 'Random Street', (5, 4): 'Random Street', (5, 5): 'Random Street', (5, 6): 'Random Street', (5, 7): 'Random Street', (5, 8): 'Random Street', (5, 9): 'Random Street', (6, 0): 'Random Street', (6, 1): 'Random Street', (6, 2): 'Random Street', (6, 3): 'Random Street', (6, 4): 'Random Street', (6, 5): 'Random Street', (6, 6): 'Random Street', (6, 7): 'Random Street', (6, 8): 'Random Street', (6, 9): 'Random Street', (7, 0): 'Random Street', (7, 1): 'Random Street', (7, 2): 'Kyoto University', (7, 3): 'Random Street', (7, 4): 'Random Street', (7, 5): 'Random Street', (7, 6): 'Random Street', (7, 7): 'Random Street', (7, 8): 'Random Street', (7, 9): 'Random Street', (8, 0): 'Random Street', (8, 1): 'Random Street', (8, 2): 'Random Street', (8, 3): 'Random Street', (8, 4): 'Random Street', (8, 5): 'Random Street', (8, 6): 'Kiyomizudera Temple', (8, 7): 'Random Street', (8, 8): 'Random Street', (8, 9): 'Random Street', (9, 0): 'Random Street', (9, 1): 'Random Street', (9, 2): 'Random Street', (9, 3): 'Random Street', (9, 4): 'Random Street', (9, 5): 'Random Street', (9, 6): 'Random Street', (9, 7): 'Random Street', (9, 8): 'Random Street', (9, 9): 'Random Street'}
     >>> is_kinkakuji(user_character, user_board)
     True
@@ -335,10 +335,10 @@ def is_achieved_level_3(character: dict) -> bool:
     :postcondition: return True if the character reach level 3, else False
     :return: a Boolean
 
-    >>> user_character = {'X-coordinate': 1, 'Y-coordinate': 0, 'Current HP': 3, 'KEP': 7, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 1, 'Y-coordinate': 0, 'Current HP': 3, 'KEP': 7, 'Name': 'Chris',  'Level': 'level 3'}
     >>> is_achieved_level_3(user_character)
     True
-    >>> user_character = {'X-coordinate': 5, 'Y-coordinate': 5, 'Current HP': 4, 'KEP': 2, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 5, 'Y-coordinate': 5, 'Current HP': 4, 'KEP': 2, 'Name': 'Chris',  'Level': 'level 1'}
     >>> is_achieved_level_3(user_character)
     False
     """
@@ -500,14 +500,14 @@ def lose_monk(character: dict) -> None:
     :precondition: character must contain X- and Y-coordinates, current status, and name
     :postcondition: decrease character's Current HP by 2.
 
-    >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 4, 'KEP': 8, 'Name': 'Chris'}
+    >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 4, 'KEP': 8, 'Name': 'Chris', 'Level': 'level 3'}
     >>> lose_monk(user_character)
     >>> user_character
-    {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 2, 'KEP': 8, 'Name': 'Chris'}
-    >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 2, 'KEP': 7, 'Name': 'Chris'}
+    {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 2, 'KEP': 8, 'Name': 'Chris', 'Level': 'level 3'}
+    >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 2, 'KEP': 7, 'Name': 'Chris', 'Level': 'level 3'}
     >>> lose_monk(user_character)
     >>> user_character
-    {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 0, 'KEP': 7, 'Name': 'Chris'}
+    {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 0, 'KEP': 7, 'Name': 'Chris', 'Level': 'level 3'}
 
     """
     character['Current HP'] -= 2
