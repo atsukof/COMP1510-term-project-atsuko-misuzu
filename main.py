@@ -586,8 +586,7 @@ def game():
 
 
 def main():
-    # game()
-    fight_with_monk()
+    game()
 
 
 if __name__ == '__main__':
