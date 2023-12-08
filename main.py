@@ -455,16 +455,13 @@ def fight_with_monk() -> bool:
     monk_choice = combination_list[monk_choice_number]
 
     time.sleep(1)
-    print('The monk has challenged you to a game! It\'s a game using Hanafuda(花札), a traditional Japanese card game.')
-    time.sleep(1)
-    print('Out of four beautifully illustrated cards, the monk selects two.\n')
-    time.sleep(1)
-    print('Your task is to guess which cards the monk is holding.')
-    time.sleep(1)
-    print('The four cards feature drawings of 1. boar(猪), 2. deer(鹿), 3. butterfly(蝶), and 4. crane(鶴).\n')
-    time.sleep(1)
+    print('The monk has challenged you to a game! It\'s a game using Hanafuda(花札), a traditional Japanese card game.\n'
+          'Out of four beautifully illustrated cards, the monk selects two.\n')
+    time.sleep(2)
+    print('Your task is to guess which cards the monk is holding.\n'
+          'The four cards feature drawings of 1. boar(猪), 2. deer(鹿), 3. butterfly(蝶), and 4. crane(鶴).\n')
+    time.sleep(2)
     print('Choose two of them and provide your answer one by one (the order does not matter).')
-    time.sleep(1)
 
     while True:
         try:
@@ -480,17 +477,17 @@ def fight_with_monk() -> bool:
 
     user_choice = {first_card, second_card}
 
-    monk_first = monk_choice.pop()
-    monk_second = monk_choice.pop()
-    print(f'The monk is holding "{cards[monk_first]}" and "{cards[monk_second]}".')
-    print(f'You choose "{cards[first_card]}" and "{cards[second_card]}".')
-
     if monk_choice == user_choice:
         print('Hooray, you won!')
         user_won = True
     else:
         print('Oh no, you lost!')
         user_won = False
+
+    monk_first = monk_choice.pop()
+    monk_second = monk_choice.pop()
+    print(f'The monk is holding "{cards[monk_first]}" and "{cards[monk_second]}".')
+    print(f'You choose "{cards[first_card]}" and "{cards[second_card]}".')
     time.sleep(2)
     return user_won
 
@@ -591,7 +588,6 @@ def game():
 def main():
     # game()
     fight_with_monk()
-
 
 
 if __name__ == '__main__':

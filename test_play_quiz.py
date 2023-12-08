@@ -5,8 +5,8 @@ from main import play_quiz
 
 
 class Test(TestCase):
-    @patch('builtins.input', side_effect=['2'])
-    @patch('random.randint', return_value=1)
+    @patch('builtins.input', side_effect=['4'])
+    @patch('random.randint', return_value=0)
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_correct_answer_print(self, mock_output, _, __):
         character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0,
