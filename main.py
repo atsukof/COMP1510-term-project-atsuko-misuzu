@@ -1,6 +1,7 @@
 import time
 import random
 import json
+from itertools import combinations
 
 
 def make_board() -> dict:
@@ -406,75 +407,95 @@ def eat_food(character: dict, level_dictionary: dict) -> None:
     time.sleep(1)
 
 
+def print_monk_pic() -> None:
+    """
+    Print monk's picture with a simple ASCII art.
+
+    :postcondition: prints monk's picture with a simple ASCII art
+    """
+    monk_pic = """
+                          ..(gmQa-,
+                    .M"`      (TQ,
+                   d3            Ux
+         `        J%              H,        `   `
+     `     `  `   #    ..    ..   -]  `  `
+        `       ..M          `    -N,         `
+               .M`     NF `  NF     ?b      `    `
+    `    `  `   N,.,      ,.    ` ...F   `
+       `         ?Tb             .M"!         `
+                   ?m.   777^   .M'         `    `
+    `     `   `  .xMmWa,    `..dNMNJ.   `
+       `   `  .J@!  ,H,.WM"WM=.M^  .#N,  `   `  `
+             .@`      ?N,,MD.M=   JD (Mm.
+     `      (D         .M"M@H, .M""NM^ ,N.
+        `  (F          g% M~.N.dL  g\   ,N.  `  `
+    `     .F   ..     .F  M~ ,M$?M"' ,   Jb
+       ` .M`   J]  `..#   M~  qNM'  .#    Wc  `
+         Jt    J] .J@M\   M~   MTN, .#    .N.    `
+    `   .#     Jhd"  Me  .MN, .M. ?HJ#     Jb
+        d'    .#=   .MMMM]M?MMMMN   .Ta, `  M.  `
+       .F    "!    .MMMMM`M;HMMMMb     T^   -b
+     """
+    print(monk_pic)
+
+
 def fight_with_monk() -> bool:
     """
-    Get user input and compare it with the number that is randomly generated.
+    Play game with the monk.
 
-    Play rock-paper-scissors game.
-
+    The function generates a set with random two integers in 1-4 using combinations method called as monk_choice.
+    It gets user input of two integers, and makes a set of them called as user_choice.
+    It compares monk_choice and user_choice.
+    If the two sets are identical, the function returns True. If not, the function returns False.
     :postcondition: return True if user wins the rock-paper-scissors game, else False
     :return: a Boolean
     """
-    monk_pic = """
-                         ..(gmQa-,
-                   .M"`      (TQ,
-                  d3            Ux
-        `        J%              H,        `   `
-    `     `  `   #    ..    ..   -]  `  `
-       `       ..M          `    -N,         `
-              .M`     NF `  NF     ?b      `    `
-   `    `  `   N,.,      ,.    ` ...F   `
-      `         ?Tb             .M"!         `
-                  ?m.   777^   .M'         `    `
-   `     `   `  .xMmWa,    `..dNMNJ.   `
-      `   `  .J@!  ,H,.WM"WM=.M^  .#N,  `   `  `
-            .@`      ?N,,MD.M=   JD (Mm.
-    `      (D         .M"M@H, .M""NM^ ,N.
-       `  (F          g% M~.N.dL  g\   ,N.  `  `
-   `     .F   ..     .F  M~ ,M$?M"' ,   Jb
-      ` .M`   J]  `..#   M~  qNM'  .#    Wc  `
-        Jt    J] .J@M\   M~   MTN, .#    .N.    `
-   `   .#     Jhd"  Me  .MN, .M. ?HJ#     Jb
-       d'    .#=   .MMMM]M?MMMMN   .Ta, `  M.  `
-      .F    "!    .MMMMM`M;HMMMMb     T^   -b
-    """
-    print(monk_pic)
-    print('Monk wants to fight with you. Let\'s play rock-paper-scissors game!')
-    user_won = False
+    cards = {1: 'boar', 2: 'deer', 3: 'butterfly', 4: 'crane'}
+    combination_list = []
+    for first, second in combinations(cards, 2):
+        card_set = {first, second}
+        combination_list.append(card_set)
+
+    monk_choice_number = random.randint(0,5)
+    monk_choice = combination_list[monk_choice_number]
+
+    time.sleep(1)
+    print('The monk has challenged you to a game! It\'s a game using Hanafuda(花札), a traditional Japanese card game.')
+    time.sleep(1)
+    print('Out of four beautifully illustrated cards, the monk selects two.\n')
+    time.sleep(1)
+    print('Your task is to guess which cards the monk is holding.')
+    time.sleep(1)
+    print('The four cards feature drawings of 1. boar(猪), 2. deer(鹿), 3. butterfly(蝶), and 4. crane(鶴).\n')
+    time.sleep(1)
+    print('Choose two of them and provide your answer one by one (the order does not matter).')
+    time.sleep(1)
 
     while True:
-        choice_dictionary = {1: 'rock', 2: 'paper', 3: 'scissors'}
-        monk_choice = random.randint(1, 3)
-        user_choice_option_list = ['1', '2', '3']
-        user_choice = input(f'Which do you want to choose? Type 1 for rock, 2 for paper, 3 for scissors.\n'
-                            f'Your choice {user_choice_option_list}: ')
-        if user_choice not in user_choice_option_list:
-            print(f'You should choose from {user_choice_option_list}!')
-            continue
-
-        int_user_choice = int(user_choice)
-        print(f'You threw {choice_dictionary[int_user_choice]}, and the monk threw {choice_dictionary[monk_choice]}!')
-        if monk_choice == user_choice:
-            print('Draw! Try one more time.')
-            time.sleep(1)
-            continue
-        elif monk_choice < int_user_choice:
-            if monk_choice == 1 and int_user_choice == 3:
-                break
-            else:
-                user_won = True
-                break
+        try:
+            first_card = int(input('Choose your 1st card from 1-4: '))
+            second_card = int(input('Choose your 2nd card from 1-4: '))
+        except ValueError:
+            print('You can only input numbers in 1-4. Try again.')
         else:
-            if monk_choice == 3 and int_user_choice == 1:
-                user_won = True
-                break
+            if first_card not in [1, 2, 3, 4] or second_card not in [1, 2, 3, 4]:
+                print('You can only input numbers in 1-4. Try again.')
             else:
                 break
 
-    if user_won:
+    user_choice = {first_card, second_card}
+
+    monk_first = monk_choice.pop()
+    monk_second = monk_choice.pop()
+    print(f'The monk is holding "{cards[monk_first]}" and "{cards[monk_second]}".')
+    print(f'You choose "{cards[first_card]}" and "{cards[second_card]}".')
+
+    if monk_choice == user_choice:
         print('Hooray, you won!')
+        user_won = True
     else:
         print('Oh no, you lost!')
+        user_won = False
     time.sleep(2)
     return user_won
 
@@ -545,6 +566,7 @@ def game():
             kinkakuji = is_kinkakuji(character, board)
             level_3 = is_achieved_level_3(character)
             if kinkakuji and level_3:
+                print_monk_pic()
                 complete = fight_with_monk()
                 if not complete:
                     lose_monk(character)
@@ -573,39 +595,8 @@ def game():
 
 def main():
     # game()
-    character = {'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0,
-                 'Level': "level 1", 'Name': 'Chris'}
-    # board = {(0, 0): 'Kinkakuji Temple', (0, 1): 'Random Street', (0, 2): 'Random Street',
-    #          (0, 3): 'Random Street', (0, 4): 'Random Street', (0, 5): 'Random Street', (0, 6): 'Random Street',
-    #          (0, 7): 'Random Street', (0, 8): 'Random Street', (0, 9): 'Random Street', (1, 0): 'Random Street',
-    #          (1, 1): 'Random Street', (1, 2): 'Random Street', (1, 3): 'Random Street', (1, 4): 'Random Street',
-    #          (1, 5): 'Random Street', (1, 6): 'Random Street', (1, 7): 'Random Street', (1, 8): 'Random Street',
-    #          (1, 9): 'Random Street', (2, 0): 'Random Street', (2, 1): 'Random Street', (2, 2): 'Random Street',
-    #          (2, 3): 'Random Street', (2, 4): 'Random Street', (2, 5): 'Nijojo Castle', (2, 6): 'Random Street',
-    #          (2, 7): 'Random Street', (2, 8): 'Random Street', (2, 9): 'Random Street', (3, 0): 'Random Street',
-    #          (3, 1): 'Random Street', (3, 2): 'Random Street', (3, 3): 'Kyoto Imperial Palace',
-    #          (3, 4): 'Random Street', (3, 5): 'Random Street', (3, 6): 'Nishiki Market',
-    #          (3, 7): 'Random Street', (3, 8): 'Random Street', (3, 9): 'Random Street', (4, 0): 'Random Street',
-    #          (4, 1): 'Random Street', (4, 2): 'Random Street', (4, 3): 'Random Street', (4, 4): 'Random Street',
-    #          (4, 5): 'Ueshima Coffee', (4, 6): 'Random Street', (4, 7): 'Random Street',
-    #          (4, 8): 'Random Street', (4, 9): 'Kyoto Station', (5, 0): 'Random Street', (5, 1): 'Random Street',
-    #          (5, 2): 'Random Street', (5, 3): 'Random Street', (5, 4): 'Random Street', (5, 5): 'Random Street',
-    #          (5, 6): 'Random Street', (5, 7): 'Random Street', (5, 8): 'Random Street', (5, 9): 'Random Street',
-    #          (6, 0): 'Random Street', (6, 1): 'Random Street', (6, 2): 'Random Street', (6, 3): 'Random Street',
-    #          (6, 4): 'Random Street', (6, 5): 'Random Street', (6, 6): 'Random Street', (6, 7): 'Random Street',
-    #          (6, 8): 'Random Street', (6, 9): 'Random Street', (7, 0): 'Random Street', (7, 1): 'Random Street',
-    #          (7, 2): 'Kyoto University', (7, 3): 'Random Street', (7, 4): 'Random Street',
-    #          (7, 5): 'Random Street', (7, 6): 'Random Street', (7, 7): 'Random Street', (7, 8): 'Random Street',
-    #          (7, 9): 'Random Street', (8, 0): 'Random Street', (8, 1): 'Random Street', (8, 2): 'Random Street',
-    #          (8, 3): 'Random Street', (8, 4): 'Random Street', (8, 5): 'Random Street',
-    #          (8, 6): 'Kiyomizudera Temple', (8, 7): 'Random Street', (8, 8): 'Random Street',
-    #          (8, 9): 'Random Street', (9, 0): 'Random Street', (9, 1): 'Random Street', (9, 2): 'Random Street',
-    #          (9, 3): 'Random Street', (9, 4): 'Random Street', (9, 5): 'Random Street', (9, 6): 'Random Street',
-    #          (9, 7): 'Random Street', (9, 8): 'Random Street', (9, 9): 'Random Street'}
-    #
-    # play_quiz(character)
-    level = make_level_dict()
-    eat_food(character, level)
+    fight_with_monk()
+
 
 
 if __name__ == '__main__':
