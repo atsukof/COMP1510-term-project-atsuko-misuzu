@@ -291,7 +291,7 @@ def play_quiz(character: dict) -> None:
     Allow users to play quiz.
 
     The function increases KEP by 1 if users choose the correct answer,
-    decreases Current HP if uses choose wrong answer.
+    decreases Current HP if users choose wrong answer.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: character must contain X- and Y-coordinates, current status, and name
