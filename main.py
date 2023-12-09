@@ -11,6 +11,7 @@ def make_board() -> dict:
     Each point on the game board is represented by coordinates ranging from (0, 0) to (9, 9),
     and each point is assigned a name.
     Special locations on the board have specific coordinates, while others are named "Random Street."
+
     :postcondition: creates a 10 x 10 game board
     :return: a dictionary where keys are coordinates and values are names of the places
 
@@ -35,6 +36,7 @@ def make_board() -> dict:
 def make_level_dict() -> dict:
     """
     Create a dictionary that contains levels and their explanation.
+
     :postcondition: create a dictionary that contains levels and their explanation
     :return: a dictionry that contains levels and their explanation
 
@@ -55,6 +57,7 @@ def make_character() -> dict:
 
     This function allows a user to enter character's name.
     After the character's name is determined, this function returns a dictionary with character's information.
+
     :postcondition: creates a dictionary with character's information
     :return: a dictionary where keys are X- Y-coordinates, Current HP, KEP, and name of the character
     """
@@ -133,8 +136,9 @@ def get_user_choice() -> int:
     """
     Ask a user to enter the direction they wish to travel and return the user's choice.
 
-    This function prompts the user to input an integer between 1 and 4 (inclusive).
-    If the user enters something other than an integer, the function requests input again.
+    This function prompts the user to input an integer between 1 and 4 inclusive.
+    If the user enters something other than an integer between 1 and 4, the function requests input again.
+
     :postcondition: the function let a user enter a number until they enter a correct number
     :return: an integer between 1 and 4 inclusive
     """
@@ -207,13 +211,13 @@ def move_user(character: dict, direction: int) -> None:
 
 def is_kinkakuji(character: dict, board: dict) -> bool:
     """
-    Check if the character has reached the goal.
+    Check if the character has reached the goal point.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :param board: a dictionary where keys are coordinates and values are names of the places
     :precondition: character must conform to the format specified in the parameter
     :precondition: board must conform to the format specified in the parameter
-    :postcondition: checks if the character is in the goal
+    :postcondition: checks if the character is in the goal point
     :return: a Boolean
 
     >>> user_character = {'X-coordinate': 5, 'Y-coordinate': 6, 'Current HP': 5, 'KEP': 0, 'Name': 'Chris', 'Level': 'level 1'}
@@ -238,6 +242,7 @@ def check_quiz() -> bool:
 
     This function generates a random number between 1 and 10 inclusive.
     If the random number is equal or less than 3, the function returns True.
+
     :postcondition: generates a random number between 1 and 10 inclusive
     :postcondition: returns True if the random number is equal or less than 3, else False
     :return: a Boolean
@@ -250,12 +255,13 @@ def play_quiz(character: dict) -> None:
     """
     Print random quiz.
 
-    Increase KEP by 1 if user choose the correct choice, decrease Current HP if they choose wrong one.
+    The function increases KEP by 1 if user chooses the correct choice, decreases Current HP if they choose wrong one.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: character must contain X- and Y-coordinates, current status, and name
-    :postcondition: print random quiz
-    :postcondition: increase KEP by 1 if user choose the correct choice, decrease Current HP if they choose wrong one
+    :postcondition: prints a random quiz
+    :postcondition: increases KEP by 1 if user chooses the correct choice
+    :postcondition: decreases Current HP by 1 if the user chooses wrong one
     """
     filename = "quiz.json"
     with open(filename) as file_object:
@@ -295,9 +301,9 @@ def check_level(character: dict, level_dictionary: dict) -> None:
     Print if the user's level has increased.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :param level_dictionary: a dictionary #あとで書く
+    :param level_dictionary: a dictionry that contains levels and their explanation
     :precondition: character must contain X- and Y-coordinates, current status, and name
-    :postcondition: check the user's current level based on KEP and print it
+    :postcondition: checks the user's current level based on KEP and prints it
 
     >>> my_character = {'Name': 'Atsuko', 'X-coordinate': 4, 'Y-coordinate': 9, 'Current HP': 3, 'KEP': 0, 'Level': 'level 1'}
     >>> level_dict = {'level 1': {'KEP_max': 2, 'maximum_HP': 5, 'name': 'Kyoto rookie'}, 'level 2': {'KEP_max': 5, 'maximum_HP': 7, 'name': 'Kyoto skilled novice'}, 'level 3': {'KEP_max': 9999, 'maximum_HP': 10, 'name': 'Kyoto expert'}}
@@ -332,7 +338,7 @@ def is_achieved_level_3(character: dict) -> bool:
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: character must contain X- and Y-coordinates, current status, and name
-    :postcondition: return True if the character reach level 3, else False
+    :postcondition: returns True if the character reach level 3, else False
     :return: a Boolean
 
     >>> user_character = {'X-coordinate': 1, 'Y-coordinate': 0, 'Current HP': 3, 'KEP': 7, 'Name': 'Chris',  'Level': 'level 3'}
@@ -354,7 +360,7 @@ def is_food_station(character: dict, board: dict) -> bool:
     :param board: a dictionary where keys are coordinates and values are names of the places
     :precondition: character must contain X- and Y-coordinates, current status, and name
     :precondition: board must conform to the format specified in the parameter
-    :postcondition: return True if the character has reached the food station, else False
+    :postcondition: returns True if the character has reached the food station, else False
     :return: a Boolean
     """
     filename = "special_location.json"
@@ -373,12 +379,12 @@ def is_food_station(character: dict, board: dict) -> bool:
 
 def eat_food(character: dict, level_dictionary: dict) -> None:
     """
-    Increase the Current HP by eating food if user want to.
+    Increase the Current HP by eating food if user wants to.
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :param level_dictionary: a dictionary #あとで書く
+    :param level_dictionary: a dictionary that contains levels and their explanation
     :precondition: character must contain X- and Y-coordinates, current status, and name
-    :postcondition: increase the Current HP by eating food if user want to
+    :postcondition: increases the Current HP by eating food if user wants to
     """
     user_level = character["Level"]
     max_hp = level_dictionary[user_level]["maximum_HP"]
@@ -404,9 +410,9 @@ def eat_food(character: dict, level_dictionary: dict) -> None:
 
 def print_monk_pic() -> None:
     """
-    Print monk's picture with a simple ASCII art.
+    Print a monk's picture with a simple ASCII art.
 
-    :postcondition: prints monk's picture with a simple ASCII art
+    :postcondition: prints a monk's picture with a simple ASCII art
     """
     monk_pic = """
                           ..(gmQa-,
@@ -442,7 +448,8 @@ def fight_with_monk() -> bool:
     It gets user input of two integers, and makes a set of them called as user_choice.
     It compares monk_choice and user_choice.
     If the two sets are identical, the function returns True. If not, the function returns False.
-    :postcondition: return True if user wins the rock-paper-scissors game, else False
+
+    :postcondition: returns True if user wins the rock-paper-scissors game, else False
     :return: a Boolean
     """
     cards = {1: 'boar', 2: 'deer', 3: 'butterfly', 4: 'crane'}
@@ -498,7 +505,7 @@ def lose_monk(character: dict) -> None:
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: character must contain X- and Y-coordinates, current status, and name
-    :postcondition: decrease character's Current HP by 2.
+    :postcondition: decreases character's Current HP by 2.
 
     >>> user_character = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 4, 'KEP': 8, 'Name': 'Chris', 'Level': 'level 3'}
     >>> lose_monk(user_character)
@@ -519,7 +526,7 @@ def is_alive(character: dict) -> bool:
 
     :param character: a dictionary that contains X- and Y-coordinates, current status, and name
     :precondition: user_character must contain X- and Y-coordinates, current status, and name
-    :postcondition: check if the current HP in character reaches zero or not
+    :postcondition: checks if the current HP in character reaches zero or not
     :return: a Boolean
 
     >>> user_character = {'X-coordinate': 3, 'Y-coordinate': 3, 'Current HP': 3, 'KEP': 5, 'Level': 'level 2', 'Name': 'Chris'}
