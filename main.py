@@ -463,6 +463,42 @@ def print_monk_pic() -> None:
     print(monk_pic)
 
 
+def decide_monk_choice(cards) -> set:
+    """
+    Determine the monk's choice from the possible combinations of the cards.
+
+    :param cards: a dictionary which contains cards
+    :precondition: cards must be a dictionary which contains cards information as value
+    :postcondition: determine the monk's card choice
+    :return: a set
+    """
+
+    combination_list = []
+    for first, second in combinations(cards, 2):
+        card_set = {first, second}
+        combination_list.append(card_set)
+
+    monk_choice_number = random.randint(0, 5)
+    combination_set = combination_list[monk_choice_number]
+    return combination_set
+
+
+def monk_game_instruction() -> None:
+    """
+    Print instruction of the game with monk.
+
+    :postcondition: print instruction of the game with monk
+    """
+    time.sleep(1)
+    print('The monk has challenged you to a game! It\'s a game using Hanafuda(花札), a traditional Japanese card game.\n'
+          'Out of four beautifully illustrated cards, the monk selects two.\n')
+    time.sleep(2)
+    print('Your task is to guess which cards the monk is holding.\n'
+          'The four cards feature drawings of 1. boar(猪), 2. deer(鹿), 3. butterfly(蝶), and 4. crane(鶴).\n')
+    time.sleep(2)
+    print('Choose two of them and provide your answer one by one (the order does not matter).')
+
+
 def fight_with_monk() -> bool:
     """
     Play game with the monk.
@@ -476,22 +512,8 @@ def fight_with_monk() -> bool:
     :return: a Boolean
     """
     cards = {1: 'boar', 2: 'deer', 3: 'butterfly', 4: 'crane'}
-    combination_list = []
-    for first, second in combinations(cards, 2):
-        card_set = {first, second}
-        combination_list.append(card_set)
-
-    monk_choice_number = random.randint(0, 5)
-    monk_choice = combination_list[monk_choice_number]
-
-    time.sleep(1)
-    print('The monk has challenged you to a game! It\'s a game using Hanafuda(花札), a traditional Japanese card game.\n'
-          'Out of four beautifully illustrated cards, the monk selects two.\n')
-    time.sleep(2)
-    print('Your task is to guess which cards the monk is holding.\n'
-          'The four cards feature drawings of 1. boar(猪), 2. deer(鹿), 3. butterfly(蝶), and 4. crane(鶴).\n')
-    time.sleep(2)
-    print('Choose two of them and provide your answer one by one (the order does not matter).')
+    monk_choice = decide_monk_choice(cards)
+    monk_game_instruction()
 
     while True:
         try:
