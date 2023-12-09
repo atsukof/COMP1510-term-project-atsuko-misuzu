@@ -1,5 +1,4 @@
 from unittest import TestCase
-
 from main import make_level_dict
 
 

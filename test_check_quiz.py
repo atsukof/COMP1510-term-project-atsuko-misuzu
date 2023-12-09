@@ -1,7 +1,6 @@
 from unittest import TestCase
 from unittest.mock import patch
 from main import check_quiz
-import io
 
 
 class Test(TestCase):
@@ -14,5 +13,6 @@ class Test(TestCase):
         self.assertEqual(True, check_quiz())
 
     @patch('random.randint', return_value=10)
-    def test_random_10(self, return_value):
+    def test_random_10(self, _):
         self.assertEqual(False, check_quiz())
+        

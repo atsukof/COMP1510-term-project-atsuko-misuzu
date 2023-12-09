@@ -1,6 +1,7 @@
 from unittest import TestCase
 from main import lose_monk
 
+
 class Test(TestCase):
     def test_lose_monk(self):
         my_character = {

@@ -451,7 +451,7 @@ def fight_with_monk() -> bool:
         card_set = {first, second}
         combination_list.append(card_set)
 
-    monk_choice_number = random.randint(0,5)
+    monk_choice_number = random.randint(0, 5)
     monk_choice = combination_list[monk_choice_number]
 
     time.sleep(1)
