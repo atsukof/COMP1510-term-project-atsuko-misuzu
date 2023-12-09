@@ -64,3 +64,30 @@ So, we made a game to show how great Kyoto is and teach about Kyoto and Japan us
 - Losing the battle against the monk results in a decrease of 2 HP.
 - Characters can move to a different location and challenge the monk again at Kinkakuji, allowing multiple attempts.
 
+
+| Element                          | Functions/Description                                              |
+|----------------------------------|---------------------------------------------------------------------|
+| Scenario                         | `instruction` - Describes game progression.                          |
+| 10x10 grid environment           | `make_board`, `show_status_and_map`                                 |
+| Character                        | `make_character`                                                    |
+| Character attributes             | Name, Hit Points, Kyoto Experience Points, Level                     |
+| Character movement               | `get_user_choice`, `validate_direction`, `move_user`                 |
+| Encounter obstacles              | `check_quiz`                                                        |
+| Overcome obstacles               | `play_quiz`                                                         |
+| Game completion                  | Character achieves final goal or level 3                            |
+| Simple leveling scheme           | Starts at level 1, can reach level 3                                |
+| Leveling elements                | Level name, Level up, Reaching new levels, Reaching level 3           |
+| Character level-up action        | Fight with the final boss if Level 3 is achieved and at Kinkakuji    |
+| Character runs out of mojo       | Game ends if character is not alive                                  |
+| Immutable data structures        | `make_board`                                                        |
+| Mutable data structures          | `make_character`                                                    |
+| Exceptions and handling          | `fight_with_monk`                                                   |
+| List/dictionary comprehensions   | `Make_board` (board_dict)                                           |
+| If-statements                    | Various functions throughout the game                                |
+| Loops (for/while)                | Various functions throughout the game                                |
+| Membership operator              | `Fight_with_monk`, `make_board`                                     |
+| Range function                   | `Make_board`, `show_status_and_map`                                 |
+| Itertools                        | `Fight_with_monk`                                                   |
+| Random module                    | `Play_quiz`, `fight_with_monk`                                      |
+| Formatting strings               | `Make_character`, `fight_with_monk`, `get_user_choice`, `check_level`, `is_food_station` |
+
