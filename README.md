@@ -65,6 +65,8 @@ So, we made a game to show how great Kyoto is and teach about Kyoto and Japan us
 - Characters can move to a different location and challenge the monk again at Kinkakuji, allowing multiple attempts.
 
 
+## 3. Requirements
+
 | Element                          | Functions/Description                                              |
 |----------------------------------|---------------------------------------------------------------------|
 | Scenario                         | `instruction` - Describes game progression.                          |
