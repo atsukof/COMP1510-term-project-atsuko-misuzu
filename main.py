@@ -440,6 +440,26 @@ def print_monk_pic() -> None:
     print(monk_pic)
 
 
+def decide_monk_choice(cards) -> set:
+    """
+    Determine the monk's choice from the possible combinations of the cards.
+
+    :param cards: a dictionary which contains cards
+    :precondition: cards must be a dictionary which contains cards information as value
+    :postcondition: determine the monk's card choice
+    :return: a set
+    """
+
+    combination_list = []
+    for first, second in combinations(cards, 2):
+        card_set = {first, second}
+        combination_list.append(card_set)
+
+    monk_choice_number = random.randint(0, 5)
+    combination_set = combination_list[monk_choice_number]
+    return combination_set
+
+
 def monk_game_instruction() -> None:
     """
     Print instruction of the game with monk.
@@ -469,16 +489,8 @@ def fight_with_monk() -> bool:
     :return: a Boolean
     """
     cards = {1: 'boar', 2: 'deer', 3: 'butterfly', 4: 'crane'}
-    combination_list = []
-    for first, second in combinations(cards, 2):
-        card_set = {first, second}
-        combination_list.append(card_set)
-
-    monk_choice_number = random.randint(0, 5)
-    monk_choice = combination_list[monk_choice_number]
-
+    monk_choice = decide_monk_choice(cards)
     monk_game_instruction()
-
 
     while True:
         try:
