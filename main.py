@@ -251,46 +251,69 @@ def check_quiz() -> bool:
     return encounter_quiz <= 3
 
 
-def play_quiz(character: dict) -> None:
+def get_random_quiz():
     """
-    Print a random quiz.
+    Get a random quiz from quiz.json.
 
-    The function increases KEP by 1 if user chooses the correct choice, decreases Current HP if they choose wrong one.
-
-    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
-    :precondition: character must contain X- and Y-coordinates, current status, and name
-    :postcondition: prints a random quiz
-    :postcondition: increases KEP by 1 if user chooses the correct choice
-    :postcondition: decreases Current HP by 1 if the user chooses wrong one
+    The function opens quiz.json and loads the data as a list of quiz dictionaries.
+    It generates a random number and returns a quiz dictionary based on the number.
+    :postcondition: gets a random quiz from quiz.json
+    :return: a dictionary which contains question, options 1-4, and answer as keys.
     """
     filename = "quiz.json"
     with open(filename) as file_object:
         quiz_list = json.load(file_object)
 
     random_number = random.randint(0, 11)
-    print(quiz_list[random_number]["quiz"])
-    options = (f"1. {quiz_list[random_number]['1']}\n"
-               f"2. {quiz_list[random_number]['2']}\n"
-               f"3. {quiz_list[random_number]['3']}\n"
-               f"4. {quiz_list[random_number]['4']}")
-    print(options)
+    random_quiz = quiz_list[random_number]
+    return random_quiz
+
+
+def print_quiz(quiz_dictionary):
+    """
+    Print a quiz question and options.
+
+    :param quiz_dictionary: a dictionary which contains question, options 1-4, and answer as keys.
+    :precondition: quiz_dictionary must be a dictionary which contains question, options 1-4, and answer as keys.
+    :postcondition: prints a quiz question and options.
+    :return: prints a quiz question and options.
+    """
+    print(quiz_dictionary["quiz"])
+    print(f"1. {quiz_dictionary['1']}\n"
+          f"2. {quiz_dictionary['2']}\n"
+          f"3. {quiz_dictionary['3']}\n"
+          f"4. {quiz_dictionary['4']}")
     time.sleep(1)
 
-    while True:
-        answer_option = ['1', '2', '3', '4']
-        user_answer = input(f"Enter your answer with a number {answer_option}:")
 
-        if user_answer == quiz_list[random_number]["ans"]:
+def play_quiz(character: dict) -> None:
+    """
+    Allow users to play quiz.
+
+    The function increases KEP by 1 if users choose the correct answer,
+    decreases Current HP if uses choose wrong answer.
+
+    :param character: a dictionary that contains X- and Y-coordinates, current status, and name
+    :precondition: character must contain X- and Y-coordinates, current status, and name
+    :postcondition: prints a random quiz
+    :postcondition: increases KEP by 1 if user chooses the correct answer
+    :postcondition: decreases Current HP by 1 if the user chooses wrong answer
+    """
+    quiz_dict = get_random_quiz()
+    print_quiz(quiz_dict)
+
+    while True:
+        user_answer = input("Enter your answer with a number ['1', '2', '3', '4']:")
+        if user_answer == quiz_dict["ans"]:
             print("You are correct, your KEP was increased by 1")
             character["KEP"] += 1
             break
-        elif user_answer in answer_option:
+        elif user_answer in ['1', '2', '3', '4']:
             print("You are wrong, your HP was decreased by 1")
             character["Current HP"] -= 1
             break
         else:
             print('Something is wrong... Enter your answer again.')
-
         time.sleep(1)
 
 
