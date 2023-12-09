@@ -253,7 +253,7 @@ def check_quiz() -> bool:
 
 def play_quiz(character: dict) -> None:
     """
-    Print random quiz.
+    Print a random quiz.
 
     The function increases KEP by 1 if user chooses the correct choice, decreases Current HP if they choose wrong one.
 
@@ -324,12 +324,12 @@ def check_level(character: dict, level_dictionary: dict) -> None:
     if current_kep <= level_dictionary["level 1"]["KEP_max"]:
         print(f'Now you are {level_dictionary["level 1"]["name"]} (level 1).')
     elif current_kep <= level_dictionary["level 2"]["KEP_max"]:
-        print(f'Now you are {level_dictionary["level 2"]["name"]} (level 2).')
         character["Level"] = "level 2"
+        print(f'Now you are {level_dictionary["level 2"]["name"]} (level 2).')
     else:
+        character["Level"] = "level 3"
         print(f'You are {level_dictionary["level 3"]["name"]} (level 3) now! '
               f'You\'re ready to fight with monk at Kinkakuji Temple.')
-        character["Level"] = "level 3"
 
 
 def is_achieved_level_3(character: dict) -> bool:
@@ -553,7 +553,6 @@ def game():
     while is_alive(character) and not complete:
         show_status_and_map(character, board)
         check_level(character, level_dictionary)
-        # print_level(user_level)
         direction = get_user_choice()
         valid_move = validate_direction(board, character, direction)
         if valid_move:
