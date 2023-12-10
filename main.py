@@ -449,7 +449,6 @@ def decide_monk_choice(cards) -> set:
     :postcondition: determine the monk's card choice
     :return: a set
     """
-
     combination_list = []
     for first, second in combinations(cards, 2):
         card_set = {first, second}
@@ -476,6 +475,29 @@ def monk_game_instruction() -> None:
     print('Choose two of them and provide your answer one by one (the order does not matter).')
 
 
+def get_user_combination() -> list:
+    """
+    Get two user choices and put into a list.
+
+    :postcondition: get two user choices
+    :return: a list of user's choice
+    """
+    while True:
+        try:
+            first_card = int(input('Choose your 1st card from 1-4: '))
+            second_card = int(input('Choose your 2nd card from 1-4: '))
+        except ValueError:
+            print('You can only input numbers in 1-4. Try again.')
+        else:
+            if first_card not in [1, 2, 3, 4] or second_card not in [1, 2, 3, 4]:
+                print('You can only input numbers in 1-4. Try again.')
+            else:
+                break
+
+    user_choice = [first_card, second_card]
+    return user_choice
+
+
 def fight_with_monk() -> bool:
     """
     Play game with the monk.
@@ -491,32 +513,17 @@ def fight_with_monk() -> bool:
     cards = {1: 'boar', 2: 'deer', 3: 'butterfly', 4: 'crane'}
     monk_choice = decide_monk_choice(cards)
     monk_game_instruction()
+    user_choice_list = get_user_combination()
 
-    while True:
-        try:
-            first_card = int(input('Choose your 1st card from 1-4: '))
-            second_card = int(input('Choose your 2nd card from 1-4: '))
-        except ValueError:
-            print('You can only input numbers in 1-4. Try again.')
-        else:
-            if first_card not in [1, 2, 3, 4] or second_card not in [1, 2, 3, 4]:
-                print('You can only input numbers in 1-4. Try again.')
-            else:
-                break
-
-    user_choice = {first_card, second_card}
-
-    if monk_choice == user_choice:
+    if monk_choice == set(user_choice_list):
         print('Hooray, you won!')
         user_won = True
     else:
         print('Oh no, you lost!')
         user_won = False
 
-    monk_first = monk_choice.pop()
-    monk_second = monk_choice.pop()
-    print(f'The monk is holding "{cards[monk_first]}" and "{cards[monk_second]}".')
-    print(f'You choose "{cards[first_card]}" and "{cards[second_card]}".')
+    print(f'The monk is holding "{cards[monk_choice.pop()]}" and "{cards[monk_choice.pop()]}".')
+    print(f'You choose "{cards[user_choice_list[0]]}" and "{cards[user_choice_list[1]]}".')
     time.sleep(2)
     return user_won
 
@@ -614,7 +621,8 @@ def game():
 
 
 def main():
-    game()
+    # game()
+    fight_with_monk()
 
 
 if __name__ == '__main__':
