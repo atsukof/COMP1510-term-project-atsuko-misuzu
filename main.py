@@ -251,7 +251,7 @@ def check_quiz() -> bool:
     return encounter_quiz <= 3
 
 
-def get_random_quiz():
+def get_random_quiz() -> dict:
     """
     Get a random quiz from quiz.json.
 
@@ -269,7 +269,7 @@ def get_random_quiz():
     return random_quiz
 
 
-def print_quiz(quiz_dictionary):
+def print_quiz(quiz_dictionary: dict) -> None:
     """
     Print a quiz question and options.
 
@@ -644,8 +644,7 @@ def game():
 
 
 def main():
-    # game()
-    fight_with_monk()
+    game()
 
 
 if __name__ == '__main__':
