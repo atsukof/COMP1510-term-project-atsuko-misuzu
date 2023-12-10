@@ -469,8 +469,8 @@ def decide_monk_choice(cards) -> set:
 
     :param cards: a dictionary which contains cards
     :precondition: cards must be a dictionary which contains cards information as value
-    :postcondition: determine the monk's card choice
-    :return: a set
+    :postcondition: determines the monk's card choice
+    :return: a set of two integers
     """
     combination_list = []
     for first, second in combinations(cards, 2):
@@ -486,7 +486,7 @@ def monk_game_instruction() -> None:
     """
     Print instruction of the game with monk.
 
-    :postcondition: print instruction of the game with monk
+    :postcondition: prints instruction of the game with monk
     """
     time.sleep(1)
     print('The monk has challenged you to a game! It\'s a game using Hanafuda(花札), a traditional Japanese card game.\n'
@@ -502,7 +502,7 @@ def get_user_combination() -> list:
     """
     Get two user choices and put into a list.
 
-    :postcondition: get two user choices
+    :postcondition: gets two user choices
     :return: a list of user's choice
     """
     while True:
