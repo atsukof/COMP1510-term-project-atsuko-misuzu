@@ -7,12 +7,6 @@ Atsuko Uemura
 
 Misuzu Taniguchi
 
-### Student number:
-
-A01373940
-
-A01367008
-
 ### GitHub username:
 
 atsukof
